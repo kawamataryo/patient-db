@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  historyDate: 2017-06-17
+  patientName: MyString
+  sales: 1
+  patient: 
+
+two:
+  historyDate: 2017-06-17
+  patientName: MyString
+  sales: 1
+  patient: 
