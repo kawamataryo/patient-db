@@ -1,4 +1,14 @@
 = form_for :patient do |f|
+    / 名前
     div class="form-group"
         = f.label :name
         = f.text_field :name, class:"form-control"
+    / かな
+    div class="form-group"
+        = f.label :kana
+        = f.text_field :kana, class:"form-control"
+    / 性別
+    div class="form-group"
+        = f.label
+            = f.radio_button :sex, "男性",class:"form-check-input"
+
