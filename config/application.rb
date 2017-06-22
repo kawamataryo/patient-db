@@ -1,4 +1,3 @@
-require_relative 'boot'
 
 require 'rails/all'
 
@@ -7,20 +6,23 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module Pv3
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    class Application < Rails::Application
+        # Initialize configuration defaults for originally generated Rails version.
+        config.load_defaults 5.1
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+        # Settings in config/environments/* take precedence over those specified here.
+        # Application configuration should go into files in config/initializers
+        # -- all .rb files in that directory are automatically loaded.
 
-    # アクティブレコード拡張
-    config.autoload_paths += %W(
-      #{config.root}/lib
-    )
+        # アクティブレコード拡張
+        config.autoload_paths += %W(
+        #{config.root}/lib
+        )
 
-  end
+        # 日本語化
+        config.i18n.default_locale = :ja
+
+    end
 end
 
 

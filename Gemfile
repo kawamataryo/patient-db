@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # my setupgem
 # -----------------------------------------------------------
 #bootstrap関連
-gem 'bootstrap-sass'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 #fontawesome関連
 gem "font-awesome-rails"
 #slimeの導入
@@ -73,3 +73,5 @@ gem 'html2slim'
 gem 'gon'
 # vue読み込み
 gem 'vuejs-rails'
+# pagenateの実装
+gem 'kaminari'

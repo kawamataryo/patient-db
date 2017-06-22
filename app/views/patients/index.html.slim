@@ -1,0 +1,19 @@
+table class="table"
+    thead class="thead-inverse"
+        tr
+            th ID
+                th 名前(ふりがな)
+                th 性別
+                th 年齢
+                th 住所
+                th 電話番号
+        tbody
+            - @patients.each do |patient|
+                tr
+                    td = patient.id
+                    td = patient.name + "(" + patient.kana + ")"
+                    td = patient.sex
+                    td = patient.birthdate
+                    td = patient.address
+                    td = patient.phone
+    = paginate @patients
