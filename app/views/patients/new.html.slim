@@ -15,7 +15,7 @@
     / birthdate
     div class="form-group"
         = f.label :birthdate, '生年月日'
-        = f.date_select :birthdate
+        = f.date_field :birthdate
     / phone
     div class="form-group"
         = f.label :phone, '電話番号'
@@ -29,23 +29,25 @@
         = f.label :address, '住所'
         = f.text_field :address, class:"form-control"
     / reason
-    div class="form-check form-check-inline"
-        label  class="form-check-label" #{f.radio_button :experience, "ホームページ", class:"form-check-input"} ホームページ
-    div class="form-check form-check-inline"
-        label  class="form-check-label" #{f.radio_button :experience, "口コミ", class:"form-check-input"} 口コミ
-    div class="form-check form-check-inline"
-        label  class="form-check-label" #{f.radio_button :experience, "チラシ", class:"form-check-input"} チラシ
-    div class="form-check form-check-inline"
-        label  class="form-check-label" #{f.radio_button :experience, "知人", class:"form-check-input"} 知人
+    div class="form-group"
+        div class="form-check form-check-inline"
+            label  class="form-check-label" #{f.radio_button :experience, "ホームページ", class:"form-check-input"} ホームページ
+        div class="form-check form-check-inline"
+            label  class="form-check-label" #{f.radio_button :experience, "口コミ", class:"form-check-input"} 口コミ
+        div class="form-check form-check-inline"
+            label  class="form-check-label" #{f.radio_button :experience, "チラシ", class:"form-check-input"} チラシ
+        div class="form-check form-check-inline"
+            label  class="form-check-label" #{f.radio_button :experience, "知人", class:"form-check-input"} 知人
     / reason
-    div class="form-check form-check-inline"
-        label  class="form-check-label" #{f.radio_button :experience, "あり", class:"form-check-input"} あり
-    div class="form-check form-check-inline"
-        label  class="form-check-label" #{f.radio_button :experience, "なし", class:"form-check-input"} なし
+    div class="form-group"
+        div class="form-check form-check-inline"
+            label  class="form-check-label" #{f.radio_button :experience, "あり", class:"form-check-input"} あり
+        div class="form-check form-check-inline"
+            label  class="form-check-label" #{f.radio_button :experience, "なし", class:"form-check-input"} なし
     / firstDay
     div class="form-group"
-        = f.label :firstDay, '生年月日'
-        = f.date_select :firstDay
+        = f.label :firstDay, '初診日'
+        = f.date_field:firstDay
     / memo
     div class="form-group"
         = f.label :memo, 'その他メモ'
