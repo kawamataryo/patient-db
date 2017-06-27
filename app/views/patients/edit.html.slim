@@ -1,2 +1,5 @@
-/ formパーシャル読み込み
-= render partial: 'patients/form', locals: {btn_text: "内容修正"}
+= form_for(@patient) do |f|
+    / form 読み込み
+    = render partial: 'patients/form', locals: { f: f }
+    / 送信ボタン
+    = f.submit "編集完了", class:"btn btn-primary btn-block"

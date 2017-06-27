@@ -1,0 +1,78 @@
+/ 検索フォーム
+div id="app"
+    / 検索項目の選択
+    div class="form-check form-check-inline"
+        label for="target" class="form-check-label"
+            input type="radio" name="target" class="form-check-input" value="phone" v-model="target" checked="" 電話番号で検索
+    div class="form-check form-check-inline"
+        label for="target" class="form-check-label"
+            input type="radio" name="target" class="form-check-input" value="name" v-model="target" 名前で検索
+
+    / 検索フォーム
+    div class="input-group"
+        span class="input-group-btn"
+            button class="btn btn-secondary" type="button" 検索
+        input class="form-control" v-model='filterKey'
+
+    / 検索結果テーブル
+    / 電話番号検索
+    div v-if="target == 'phone'"
+        table class="table" v-if="filterPhone.length != 0"
+            tr
+                th ID
+                th 名前
+                th 電話番号
+                th
+            tr v-for="item in filterPhone"
+                td ="{{item.id}}"
+                td ="{{item.name}}"
+                td ="{{item.phone}}"
+                td
+                    a v-bind:href="baseUrl + item.id" 詳細情報
+    / 名前検索
+    div v-if="target == 'name'"
+        table class="table" v-if="filterName.length != 0"
+            tr
+                th ID
+                th 名前
+                th 電話番号
+                th 詳細
+            tr v-for="item in filterName"
+                td ="{{item.id}}"
+                td ="{{item.name}}"
+                td ="{{item.phone}}"
+                td
+                    a v-bind:href="baseUrl + item.id" 詳細情報
+
+javascript:
+    var app = new Vue({
+        el: '#app',
+        data: {
+            items: gon.patients,// PatientsDBデータ読み込み
+            target: 'phone',//検索対象
+            filterKey: '',//検索キー
+            baseUrl: '/patients/'// 詳細リンクのベース
+        },
+        computed: {
+            // 電話番号を基準に検索
+            filterPhone: function() {
+                return this.items.filter(function(value) {
+                    if (value.phone.includes(this.filterKey)) {
+                        return true
+                    }else {
+                        return false
+                    }
+                }.bind(this))
+            },
+            // 名前を基準に検索
+            filterName: function() {
+                return this.items.filter(function(value) {
+                    if (value.name.includes(this.filterKey)) {
+                        return true
+                    }else {
+                        return false
+                    }
+                }.bind(this))
+            },
+        },
+    })

@@ -7,6 +7,7 @@ table class="table"
             th 年齢
             th 住所
             th 電話番号
+            th 編集
     tbody
         - @patients.each do |patient|
             tr
@@ -16,5 +17,7 @@ table class="table"
                 td = patient.birthdate
                 td = patient.address
                 td = patient.phone
+                td = link_to "登録内容の修正", patient_path(patient.id), class:"btn btn-primary btn-block"
 
 = paginate @patients
+= link_to "メニューに戻る", root_url
