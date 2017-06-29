@@ -17,7 +17,7 @@ table class="table"
                 td = patient.birthdate
                 td = patient.address
                 td = patient.phone
-                td = link_to "登録内容の修正", patient_path(patient.id), class:"btn btn-primary btn-block"
+                td = link_to "内容修正", patient_path(patient.id)
 
 = paginate @patients
 = link_to "メニューに戻る", root_url

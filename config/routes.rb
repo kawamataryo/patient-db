@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'histories/new'
+
+  get 'histories/show'
+
+  get 'histories/index'
+
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
     # トップページ
