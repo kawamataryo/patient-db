@@ -5,6 +5,7 @@ table class="table"
             th ID
             th 名前
             th 売り上げ
+            th 編集
     tbody
         - @histories.each do |history|
             tr
@@ -12,6 +13,7 @@ table class="table"
                 td = history.patient_id
                 td = history.patientName
                 td = history.sales
+                td = link_to "削除", history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"text-danger"
 
 = paginate @histories
 = link_to "メニューに戻る", root_url
