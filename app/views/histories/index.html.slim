@@ -1,2 +1,17 @@
-h1 Histories#index
-p Find me in app/views/histories/index.html.slim
+table class="table"
+    thead class="thead-inverse"
+        tr
+            th 日付
+            th ID
+            th 名前
+            th 売り上げ
+    tbody
+        - @histories.each do |history|
+            tr
+                td = history.historyDate
+                td = history.patient_id
+                td = history.patientName
+                td = history.sales
+
+= paginate @histories
+= link_to "メニューに戻る", root_url
