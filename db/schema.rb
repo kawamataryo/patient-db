@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 20170617060807) do
 
   create_table "histories", force: :cascade do |t|
-    t.date "historyDate"
-    t.string "patientName"
+    t.date "history_date"
+    t.string "patient_name"
     t.integer "sales"
     t.integer "patient_id"
     t.datetime "created_at", null: false
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20170617060807) do
     t.string "sex"
     t.date "birthdate"
     t.string "phone"
-    t.integer "postCode"
+    t.integer "post_code"
     t.string "address"
     t.string "reason"
     t.string "experience"
-    t.date "firstDay"
+    t.date "firstday"
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

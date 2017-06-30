@@ -11,7 +11,7 @@ table class="table"
         td = @patient.phone
     tr
         th 郵便番号
-        td = @patient.postCode
+        td = @patient.post_code
     tr
         th 住所
         td = @patient.address
@@ -23,11 +23,11 @@ table class="table"
         td = @patient.experience
     tr
         th 初診日
-        td = @patient.firstDay
+        td = @patient.firstday
     tr
         th 最終来院日
         - unless @patient.history.count == 0
-            td = @patient.history.last.historyDate
+            td = @patient.history.last.history_date
         - else
             td 履歴未入力
 

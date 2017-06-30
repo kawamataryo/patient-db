@@ -19,9 +19,9 @@ class HistoriesController < ApplicationController
             unless id == ''
                 @history = History.new
                 # データ挿入
-                @history.historyDate = @history_date
+                @history.history_date = @history_date
                 @history.patient_id = id
-                @history.patientName = Patient.find(id).name
+                @history.patient_name = Patient.find(id).name
                 @history.sales = @sales["#{count}"].to_i
                 # 保存
                 @history.save
@@ -32,14 +32,18 @@ class HistoriesController < ApplicationController
 
     # 履歴の削除
     def destroy
+        # レコード削除
         History.find(params[:id]).destroy
+        # autoincrementの初期化
+        History.reset_pk_sequence
+
         redirect_to histories_url
     end
 
     # 履歴一覧
     def index
         # 日付順で並び替えて出力
-        @histories = History.order("historyDate desc").page(params[:page])
+        @histories = History.order("history_date desc").page(params[:page])
     end
 
 end

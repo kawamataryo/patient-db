@@ -18,11 +18,11 @@ name_list.each do |data|
         sex:data['sex'],
         birthdate:data['birthdate'],
         phone:data['phone_num'],
-        postCode:data['zip'],
+        post_code:data['zip'],
         address:data['address'],
         reason:data['ad'],
         experience:data['experience'],
-        firstDay:data['firstday'],
+        firstday:data['firstday'],
         memo:data['memo'],
     )
 end
@@ -30,9 +30,9 @@ end
 
 history_list.each do |data|
     History.create(
-        historyDate:data['history_date'],
+        history_date:data['history_date'],
         patient_id:data['id'],
-        patientName:data['name'],
+        patient_name:data['name'],
         sales:data['sales'],
     )
 end

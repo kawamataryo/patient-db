@@ -21,8 +21,8 @@
         = f.text_field :phone, class:"form-control"
     / postCode
     div class="form-group"
-        = f.label :postCode, '郵便番号'
-        = f.text_field :postCode, class:"form-control", id:"address_zipcode"
+        = f.label :post_code, '郵便番号'
+        = f.text_field :post_code, class:"form-control", id:"address_zipcode"
     / address
     div class="form-group"
         = f.label :address, '住所'
@@ -45,8 +45,8 @@
             label  class="form-check-label" #{f.radio_button :experience, "なし", class:"form-check-input"} なし
     / firstDay
     div class="form-group"
-        = f.label :firstDay, '初診日'
-        = f.date_field:firstDay
+        = f.label :firstday, '初診日'
+        = f.date_field:firstday
     / memo
     div class="form-group"
         = f.label :memo, 'その他メモ'

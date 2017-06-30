@@ -9,9 +9,9 @@ table class="table"
     tbody
         - @histories.each do |history|
             tr
-                td = history.historyDate
+                td = history.history_date
                 td = history.patient_id
-                td = history.patientName
+                td = history.patient_name
                 td = history.sales
                 td = link_to "削除", history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"text-danger"
 

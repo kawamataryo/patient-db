@@ -46,7 +46,11 @@ class PatientsController < ApplicationController
 
     # 患者情報の削除
     def destroy
+        # レコード削除
         Patient.find(params[:id]).destroy
+        # autoincrementの初期化
+        Patient.reset_pk_sequence
+
         redirect_to patients_url
     end
 
