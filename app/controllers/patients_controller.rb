@@ -53,9 +53,9 @@ class PatientsController < ApplicationController
 
     # フォーム受け取り要素の選別
     private
-    def patient_params
-        params.require(:patient).permit(:name, :kana, :sex, :birthdate, :phone,
-                                        :postCode, :address, :reason, :experience,
-                                        :firstDay, :memo)
-    end
+        def patient_params
+            params.require(:patient).permit(:name, :kana, :sex, :birthdate, :phone,
+                                            :postCode, :address, :reason, :experience,
+                                            :firstDay, :memo)
+        end
 end
