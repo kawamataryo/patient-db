@@ -77,3 +77,5 @@ gem 'vuejs-rails'
 gem 'kaminari'
 # jquery
 gem 'jquery-rails'
+# 認証
+gem 'devise'
