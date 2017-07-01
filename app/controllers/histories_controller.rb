@@ -1,4 +1,6 @@
 class HistoriesController < ApplicationController
+    # 認証を追加
+    before_action :authenticate_user!
 
     # 履歴の追加
     def new

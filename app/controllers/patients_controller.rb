@@ -1,4 +1,7 @@
 class PatientsController < ApplicationController
+    # 認証を追加
+    before_action :authenticate_user!
+
     # 患者名簿一覧
     def index
         @patients = Patient.page(params[:page])
@@ -57,9 +60,9 @@ class PatientsController < ApplicationController
 
     # フォーム受け取り要素の選別
     private
-        def patient_params
-            params.require(:patient).permit(:name, :kana, :sex, :birthdate, :phone,
-                                            :postCode, :address, :reason, :experience,
-                                            :firstDay, :memo)
-        end
+    def patient_params
+        params.require(:patient).permit(:name, :kana, :sex, :birthdate, :phone,
+                                        :postCode, :address, :reason, :experience,
+                                        :firstDay, :memo)
+    end
 end
