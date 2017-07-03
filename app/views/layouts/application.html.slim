@@ -28,16 +28,15 @@ html
                             ul class="navbar-nav mr-auto"
                                 li class="nav-item"
                                     = link_to "ホーム", root_path, :class => 'nav-link'
-                                    li class="nav-item"
-                                        = link_to "患者登録", new_patient_path, :class => 'nav-link'
-                                    li class="nav-item"
-                                        = link_to "履歴入力", new_history_path, :class => 'nav-link'
-                                    li class="nav-item"
-                                        = link_to "患者検索", search_path, :class => 'nav-link'
+                                li class="nav-item"
+                                    = link_to "患者登録", new_patient_path, :class => 'nav-link'
+                                li class="nav-item"
+                                    = link_to "履歴入力", new_history_path, :class => 'nav-link'
+                                li class="nav-item"
+                                    = link_to "患者検索", search_path, :class => 'nav-link'
                             ul class="navbar-nav ml-auto"
                                 li class="nav-item"
-                                    li class="nav-item"
-                                        = link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'
+                                    = link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'
                         - else
                             ul class="navbar-nav mr-auto"
                             / li class="nav-item"
