@@ -14,6 +14,8 @@
 //= require turbolinks
 //= require vue
 //= require jquery3
-//= require popper
+//= require bootstrap/bootstrap-rails-tooltip
+//= require tether
+//= require bootstrap/bootstrap-rails-popover
 //= require bootstrap-sprockets
 //= require_tree .
