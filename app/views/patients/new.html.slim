@@ -2,4 +2,6 @@
     / form 読み込み
     = render partial: 'patients/form', locals: { f: f }
     / 送信ボタン
-    = f.submit "登録", class:"btn btn-primary btn-block"
+    = f.submit "登録", class:"btn btn-primary btn-block mg-t-30"
+
+= link_to "メニューに戻る", root_url, class:"mg-t-20 d-block text-right"
