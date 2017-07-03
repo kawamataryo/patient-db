@@ -83,3 +83,7 @@ gem 'jquery-rails'
 gem 'devise'
 # font-awesome
 gem "font-awesome-rails"
+# errorをみやすく
+gem 'better_errors', '~> 2.1', '>= 2.1.1'
+# bootstrapのformを簡単に
+gem 'bootstrap_form'
