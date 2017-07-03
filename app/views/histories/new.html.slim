@@ -3,50 +3,51 @@ div id="app" class="container"
         div class="row"
             /検索フォーム
             div class="col-sm-4"
-                / 診療日
-                table class="table table-sm"
-                        tr class="table-info text-center"
-                            th 診療日
-                        tr
-                            td
-                                div class="form-group"
-                                    input type="date" name="history_date" class="form-control"
                 div class="input-group"
                     span class="input-group-btn"
                         button class="btn btn-secondary" type="button" 名前検索
                     input class="form-control" v-model='filterKey'
-                table class="table table-sm" v-if="filterKey != ''"
+                table class="table" v-if="filterKey != ''"
                     tr v-for="item in filterItem" v-on:click='insertId(item.id)' class="search_patient-list"
                         td ="{{item.name}}"
             /患者履歴入力フォーム
             div class="col-sm-8"
-                / 売り上げ履歴
-                table class="table table-sm"
-                        tr class="table-info text-center"
-                            th ID
-                            th 名前
-                            th 売上高
-                        - (1..9).each do |i|
+                div class="card"
+                    div class="card-header"
+                        / 診療日
+                        div class="row"
+                            span for="history_date" class="col-4 m-auto" 来院履歴登録
+                            label for="history_date" class="col-4 text-right m-auto" 診療日
+                            div class="col-4"
+                                input type="date" name="history_date" class="form-control"
+                    div class="card-block"
+                        / 売り上げ履歴
+                        table class="table table-sm"
                             tr
-                                td class="width-30"
-                                    /id入力
-                                    input type="text" name="patient_id[]" v-model="id[#{i-1}]" class="form-control"
-                                td class="width-30"
-                                    /名前表示
-                                    p v-if="searchName.length != 0" ="{{searchName(id[#{i-1}])}}"
-                                td class="width-40"
-                                    /金額選択
-                                    div class="form-check form-check-inline"
-                                        label  class="form-check-label"
-                                            input type="radio" value="4000" name="sales[#{i-1}]" class="form-check-input" checked=""  4000
-                                    div class="form-check form-check-inline"
-                                        label  class="form-check-label"
-                                            input type="radio" value="3000" name="sales[#{i-1}]" class="form-check-input"  3000
-                                    div class="form-check form-check-inline"
-                                        label  class="form-check-label"
-                                            input type="radio" value="2500" name="sales[#{i-1}]" class="form-check-input"  2500
-                /送信btn
-                = submit_tag "登録", class:"btn btn-primary btn-block"
+                                th ID
+                                th 名前
+                                th 売上高
+                            - (1..9).each do |i|
+                                tr
+                                    td class="width-30"
+                                        /id入力
+                                        input type="text" name="patient_id[]" v-model="id[#{i-1}]" class="form-control"
+                                    td class="width-30"
+                                        /名前表示
+                                        p v-if="searchName.length != 0" ="{{searchName(id[#{i-1}])}}"
+                                    td class="width-40"
+                                        /金額選択
+                                        div class="form-check form-check-inline"
+                                            label  class="form-check-label"
+                                                input type="radio" value="4000" name="sales[#{i-1}]" class="form-check-input" checked=""  4000
+                                        div class="form-check form-check-inline"
+                                            label  class="form-check-label"
+                                                input type="radio" value="3000" name="sales[#{i-1}]" class="form-check-input"  3000
+                                        div class="form-check form-check-inline"
+                                            label  class="form-check-label"
+                                                input type="radio" value="2500" name="sales[#{i-1}]" class="form-check-input"  2500
+                        /送信btn
+                        = submit_tag "登録", class:"btn btn-primary btn-block"
 
 
 = link_to "メニューに戻る", root_url, class:"mg-t-20 d-block text-right"
@@ -65,7 +66,7 @@ javascript:
         filterItem: function() {
             var count = 0
             return this.items.filter(function(value) {
-                if (value.name.includes(this.filterKey) && count <= 4) {
+                if (value.name.includes(this.filterKey) && count <= 10) {
                     count+=1
                     return true
                 }else {
