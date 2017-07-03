@@ -1,6 +1,6 @@
 table class="table"
-    thead class="thead-inverse"
-        tr
+    thead
+        tr class="table-info"
             th ID
             th 名前(ふりがな)
             th 性別
@@ -20,4 +20,5 @@ table class="table"
                 td = link_to "内容修正", patient_path(patient.id)
 
 = paginate @patients
-= link_to "メニューに戻る", root_url
+
+= link_to "メニューに戻る", root_url, class:"mg-t-20 d-block text-right"
