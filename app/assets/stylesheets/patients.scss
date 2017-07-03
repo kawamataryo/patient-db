@@ -3,7 +3,10 @@
 // -----------------------------------------------------
 
 .patient-form {
-    label {
+    .form-group {
+        > label {
+            text-align: right;
+        }
     }
 }
 
