@@ -63,7 +63,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # my setupgem
 # -----------------------------------------------------------
 #bootstrap関連
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'tether-rails'
+gem 'bootstrap-popover-rails', '~> 0.1.0'
 #fontawesome関連
 gem 'font-awesome-rails'
 #slimeの導入
@@ -79,3 +81,5 @@ gem 'kaminari'
 gem 'jquery-rails'
 # 認証
 gem 'devise'
+# font-awesome
+gem "font-awesome-rails"
