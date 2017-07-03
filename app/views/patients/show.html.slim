@@ -1,3 +1,7 @@
+- if flash[:info]
+    div class="alert alert-success" role="alert"
+        = flash[:info]
+
 / 患者個別情報
 table class="table"
     tr
@@ -38,7 +42,7 @@ table class="table"
 / ナビ
 div class="row"
     div class="col-sm-3"
-        = link_to "メニューへ戻る", root_url ,class:"btn btn-primary btn-block"
+        = link_to "続けて登録", new_patient_path ,class:"btn btn-primary btn-block"
     div class="col-sm-3"
         = link_to "登録内容の修正", edit_patient_url(@patient), class:"btn btn-primary btn-block"
     div class="col-sm-3"

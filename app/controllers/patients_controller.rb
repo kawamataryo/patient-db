@@ -21,6 +21,7 @@ class PatientsController < ApplicationController
     def create
         @patient = Patient.new(patient_params)
         if @patient.save
+            flash[:info] = "#{@patient.name}さんの登録完了しました。"
             redirect_to @patient
         else
             render 'new'
