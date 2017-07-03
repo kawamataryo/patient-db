@@ -85,5 +85,3 @@ gem 'jquery-rails'
 gem 'devise'
 # font-awesome
 gem "font-awesome-rails"
-# bootstrapのformを簡単に
-gem 'bootstrap_form'
