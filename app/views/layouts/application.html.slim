@@ -24,23 +24,26 @@ html
                         | 患者情報DB
                     / メニューリスト
                     div class="collapse navbar-collapse" id="nav-content"
-                        ul class="navbar-nav mr-auto"
-                            - if user_signed_in?
+                        - if user_signed_in?
+                            ul class="navbar-nav mr-auto"
                                 li class="nav-item"
                                     = link_to "ホーム", root_path, :class => 'nav-link'
+                                    li class="nav-item"
+                                        = link_to "患者登録", new_patient_path, :class => 'nav-link'
+                                    li class="nav-item"
+                                        = link_to "履歴入力", new_history_path, :class => 'nav-link'
+                                    li class="nav-item"
+                                        = link_to "患者検索", search_path, :class => 'nav-link'
+                            ul class="navbar-nav ml-auto"
                                 li class="nav-item"
-                                    = link_to "患者登録", new_patient_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "履歴入力", search_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "患者検索", new_history_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'
-                            - else
-                                / li class="nav-item"
-                                /     = link_to "サインイン", new_user_registration_path, :class => 'nav-link'
-                                / li class="nav-item"
-                                /     = link_to "ログイン", new_user_session_path, :class => 'nav-link'
+                                    li class="nav-item"
+                                        = link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'
+                        - else
+                            ul class="navbar-nav mr-auto"
+                            / li class="nav-item"
+                            /     = link_to "サインイン", new_user_registration_path, :class => 'nav-link'
+                            / li class="nav-item"
+                            /     = link_to "ログイン", new_user_session_path, :class => 'nav-link'
 
         div class="container"
             / 本分
