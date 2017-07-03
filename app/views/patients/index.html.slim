@@ -1,6 +1,6 @@
-table class="table"
+table class="table table-striped"
     thead
-        tr class="table-info"
+        tr
             th ID
             th 名前(ふりがな)
             th 性別
@@ -21,4 +21,6 @@ table class="table"
 
 = paginate @patients
 
-= link_to "メニューに戻る", root_url, class:"mg-t-20 d-block text-right"
+/ メニューリンク
+= render partial: 'shared/menu-link'
+

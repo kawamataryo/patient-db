@@ -4,41 +4,38 @@ div class="row"
         div class="card"
             div class="card-wrap"
                 = image_tag 'patient2.jpg', class:"card-img-top"
-            div class="card-block"
-                h4 class="card-title" 患者情報
-                div class="list-group list-group-flush"
-                    a class='list-group-item' href="#{new_patient_path}"
-                        i class="fa fa-user-plus pd-r-10"
-                        | 新規登録
-                    a class='list-group-item' href="#{search_path}"
-                        i class="fa fa-search pd-r-10"
-                        | 患者検索
-                    a class='list-group-item' href="#{patients_path}"
-                        i class="fa fa-users pd-r-10"
-                        | 患者一覧
+                h4 class="card-title" Patient
+            div class="list-group list-group-flush"
+                a class='list-group-item' href="#{new_patient_path}"
+                    i class="fa fa-user-plus pd-r-10"
+                    | 患者新規登録
+                a class='list-group-item' href="#{search_path}"
+                    i class="fa fa-search pd-r-10"
+                    | 患者検索
+                a class='list-group-item' href="#{patients_path}"
+                    i class="fa fa-users pd-r-10"
+                    | 患者一覧
     div class="col-sm-4 xs-mg-t-30"
         div class="card"
             div class="card-wrap"
                 = image_tag 'history.jpg', class:"card-img-top"
-            div class="card-block"
-                h4 class="card-title" 来院履歴
-                div class="list-group list-group-flush"
-                    a class='list-group-item' href="#{new_history_path}"
-                        i class="fa fa-file-text-o pd-r-10"
-                        | 履歴入力
-                    a class='list-group-item' href="#{histories_path}"
-                        i class="fa fa-files-o pd-r-10"
-                        | 履歴一覧
+                h4 class="card-title" History
+            div class="list-group list-group-flush"
+                a class='list-group-item' href="#{new_history_path}"
+                    i class="fa fa-file-text-o pd-r-10"
+                    | 来院履歴入力
+                a class='list-group-item' href="#{histories_path}"
+                    i class="fa fa-files-o pd-r-10"
+                    | 来院履歴一覧
     div class="col-sm-4 xs-mg-t-30"
         div class="card"
             div class="card-wrap"
                 = image_tag 'graph.jpg', class:"card-img-top"
-            div class="card-block"
-                h4 class="card-title" グラフ・ツール
-                div class="list-group list-group-flush"
-                    a class='list-group-item' href="#{new_history_path}"
-                        i class="fa fa-bar-chart pd-r-10"
-                        | 統計情報表示
-                    a class='list-group-item' href="#{histories_path}"
-                        i class="fa fa-table pd-r-10"
-                        | 売上CSV出力
+                h4 class="card-title" Graph & Tool
+            div class="list-group list-group-flush"
+                a class='list-group-item' href="#{new_history_path}"
+                    i class="fa fa-bar-chart pd-r-10"
+                    | 統計情報表示
+                a class='list-group-item' href="#{histories_path}"
+                    i class="fa fa-table pd-r-10"
+                    | 売上CSV出力

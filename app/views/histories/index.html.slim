@@ -2,8 +2,8 @@
     div class="alert alert-success" role="alert"
         = flash[:info]
 
-table class="table"
-    thead class="table-info"
+table class="table table-striped"
+    thead
         tr
             th 日付
             th ID
@@ -19,5 +19,9 @@ table class="table"
                 td = history.sales
                 td = link_to "削除", history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"text-danger"
 
-= paginate @histories
-= link_to "メニューに戻る", root_url
+= paginate @histories, theme: 'twitter-bootstrap-4'
+
+
+/ メニューリンク
+= render partial: 'shared/menu-link'
+
