@@ -79,6 +79,7 @@ gem 'gon'
 gem 'vuejs-rails'
 # pagenateの実装
 gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 # jquery
 gem 'jquery-rails'
 # 認証

@@ -47,3 +47,8 @@ div class="row"
         = link_to "登録内容の修正", edit_patient_url(@patient), class:"btn btn-primary btn-block"
     div class="col-sm-3"
         = link_to "削除", @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-block"
+
+
+/ メニューリンク
+= render partial: 'shared/menu-link'
+
