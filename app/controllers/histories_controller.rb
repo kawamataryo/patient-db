@@ -16,6 +16,7 @@ class HistoriesController < ApplicationController
 
         # DB記録
         count = 0
+        success = 0
         for id in @patient_id do
             # idが空行でなかったら保存へ
             unless id == ''
@@ -26,9 +27,17 @@ class HistoriesController < ApplicationController
                 @history.patient_name = Patient.find(id).name
                 @history.sales = @sales["#{count}"].to_i
                 # 保存
-                @history.save
+                if @history.save
+                    success += 1
+                end
             end
             count += 1
+        end
+
+        # リダイレクト
+        if success > 0
+            flash[:info] = "#{@history_date} の来院履歴 #{success} 件の追加完了しました。"
+            redirect_to action: 'index'
         end
     end
 
