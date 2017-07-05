@@ -89,4 +89,4 @@ gem "font-awesome-rails"
 # chart
 gem "chartkick"
 # group
-gem 'dateslices'
+gem 'groupdate'

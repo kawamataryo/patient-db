@@ -77,8 +77,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    dateslices (0.0.4)
-      rails (> 4)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -98,6 +96,8 @@ GEM
       json
       multi_json
       request_store (>= 1.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
@@ -249,10 +249,10 @@ DEPENDENCIES
   capybara (~> 2.13)
   chartkick
   coffee-rails (~> 4.2)
-  dateslices
   devise
   font-awesome-rails
   gon
+  groupdate
   html2slim
   jbuilder (~> 2.5)
   jquery-rails
