@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'charts/show'
+
   devise_for :users
   get 'histories/new'
 

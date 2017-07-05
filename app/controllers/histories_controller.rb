@@ -57,4 +57,25 @@ class HistoriesController < ApplicationController
         @histories = History.order("history_date desc").page(params[:page])
     end
 
+    # 履歴編集
+    def edit
+        @history = History.find(params[:id])
+    end
+
+
+    # 履歴の修正をDBへ反映
+    def update
+        @history = History.find(params[:id])
+        if @history.update_attributes(history_params)
+            redirect_to histories_url
+        else
+            render 'edit'
+        end
+    end
+
+    # フォーム受け取り要素の選別
+    private
+    def history_params
+        params.require(:history).permit(:history_date, :patient_id, :patient_name, :sales)
+    end
 end
