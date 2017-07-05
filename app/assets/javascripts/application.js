@@ -18,4 +18,6 @@
 //= require tether
 //= require bootstrap/bootstrap-rails-popover
 //= require bootstrap-sprockets
+//= require highcharts
+//= require chartkick
 //= require_tree .

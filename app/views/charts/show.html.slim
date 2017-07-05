@@ -1,0 +1,29 @@
+div class="row"
+    / 来院件数
+    div class="col-sm-12 mg-b-30"
+        div class="card"
+            div class="card-header"
+                | 月別来院件数
+            div class="card-block"
+                = line_chart @month_sales
+    / 月別新規患者来院件数
+    div class="col-sm-12 mg-b-30"
+        div class="card"
+            div class="card-header"
+                | 月別新規患者来院件数
+            div class="card-block"
+                = area_chart @new_patient_chart
+    / 男女比
+    div class="col-sm-6 mg-b-30"
+        div class="card"
+            div class="card-header"
+                | 男女比
+            div class="card-block"
+                = pie_chart @sex_chart
+    / 鍼灸経験
+    div class="col-sm-6 mg-b-30"
+        div class="card"
+            div class="card-header"
+                | 鍼灸経験の有無
+            div class="card-block"
+                = pie_chart @experience_chart

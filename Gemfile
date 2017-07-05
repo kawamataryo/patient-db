@@ -86,3 +86,7 @@ gem 'jquery-rails'
 gem 'devise'
 # font-awesome
 gem "font-awesome-rails"
+# chart
+gem "chartkick"
+# group
+gem 'dateslices'
