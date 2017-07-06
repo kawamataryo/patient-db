@@ -1,15 +1,9 @@
 class ChartsController < ApplicationController
     def show
-
-        #------------------------------------------------------------------
-        # 年別売上高
-        #------------------------------------------------------------------
-        @year_sales = History.group_by_year(:history_date, format: "%Y年").sum(:sales)
-
         #------------------------------------------------------------------
         # 月別来院件数
         #------------------------------------------------------------------
-        @month_patient = History.group_by_month(:history_date).count
+        @month_sales = History.group_by_month(:history_date).count
 
         #------------------------------------------------------------------
         # 月別新規患者
@@ -61,7 +55,7 @@ class ChartsController < ApplicationController
                 @ages_chart["40代"] += 1
             when 50..59
                 @ages_chart["50代"] += 1
-            when 60..69
+            when 60..59
                 @ages_chart["60代"] += 1
             when 70..79
                 @ages_chart["70代"] += 1
@@ -80,44 +74,38 @@ class ChartsController < ApplicationController
         age_reason_cate = [ Patient.where(:reason => "ホームページ").pluck(:birthdate),
                             Patient.where(:reason => "口コミ").pluck(:birthdate),
                             Patient.where(:reason => "チラシ").pluck(:birthdate),
-                            Patient.where(:reason => "知人").pluck(:birthdate) ]
+                            Patient.where(:reason => "ホームページ").pluck(:birthdate) ]
         # 集計
-        age_reason_sum.zip(age_reason_cate).each do |age_sum, cate| #それぞれの配列を実行
-            cate.each do |birthdate| # 年齢区分ごとに集計
-                age = age_cal(birthdate)
-                case age
-                when 0..19
-                    age_sum["10代以下"] += 1
-                when 20..29
-                    age_sum["20代"] += 1
-                when 30..39
-                    age_sum["30代"] += 1
-                when 40..49
-                    age_sum["40代"] += 1
-                when 50..59
-                    age_sum["50代"] += 1
-                when 60..69
-                    age_sum["60代"] += 1
-                when 70..79
-                    age_sum["70代"] += 1
-                else
-                    age_sum["80代以上"] += 1
+        age_reason_sum.each.each do |age_sum|
+            age_reason_cate.each do |cate|
+                cate do |birthdate| # 年齢区分ごとに集計
+                    age = age_cal(birthdate)
+                    case age
+                    when 0..19
+                        age_sum["10代以下"] += 1
+                    when 20..29
+                        age_sum["20代"] += 1
+                    when 30..39
+                        age_sum["30代"] += 1
+                    when 40..49
+                        age_sum["40代"] += 1
+                    when 50..59
+                        age_sum["50代"] += 1
+                    when 60..59
+                        age_sum["60代"] += 1
+                    when 70..79
+                        age_sum["70代"] += 1
+                    else
+                        age_sum["80代以上"] += 1
+                    end
                 end
+
             end
         end
-        # viewへ送る
-        @age_reason_chart = [   {"name" => "ホームページ", "data" => age_reason_sum[0]},
-                                {"name" => "口コミ", "data" => age_reason_sum[1]},
-                                {"name" => "チラシ", "data" => age_reason_sum[2]},
-                                {"name" => "知人", "data" =>age_reason_sum[3]} ]
-
 
 
     end
 
-    #------------------------------------------------------------------
-    # 独自関数
-    #------------------------------------------------------------------
     private
         # 誕生日から年齢計算
     def age_cal(birthdate)
