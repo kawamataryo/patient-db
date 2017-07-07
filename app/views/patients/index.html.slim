@@ -17,7 +17,7 @@ table class="table table-striped"
                 td = patient.birthdate
                 td = patient.address
                 td = patient.phone
-                td = link_to "内容修正", patient_path(patient.id)
+                td = link_to "詳細情報", patient_path(patient.id), class:"btn btn-outline-primary btn-sm"
 
 = paginate @patients
 

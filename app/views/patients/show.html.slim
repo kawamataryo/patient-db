@@ -1,52 +1,60 @@
-- if flash[:info]
-    div class="alert alert-success" role="alert"
-        = flash[:info]
 
-/ 患者個別情報
-table class="table"
-    tr
-        th 名前
-        td = @patient.name + '(' + @patient.kana + ')'
-    tr
-        th 生年月日
-        td = @patient.birthdate
-    tr
-        th 電話番号
-        td = @patient.phone
-    tr
-        th 郵便番号
-        td = @patient.post_code
-    tr
-        th 住所
-        td = @patient.address
-    tr
-        th 来院理由
-        td = @patient.reason
-    tr
-        th 鍼灸経験
-        td = @patient.experience
-    tr
-        th 初診日
-        td = @patient.firstday
-    tr
-        th 最終来院日
-        - unless @patient.history.count == 0
-            td = @patient.history.last.history_date
-        - else
-            td 履歴未入力
-
-    tr
-        th 来院回数
-        td = @patient.history.count
-
-/ ナビ
 div class="row"
-    div class="col-sm-3"
-        = link_to "続けて登録", new_patient_path ,class:"btn btn-primary btn-block"
-    div class="col-sm-3"
-        = link_to "登録内容の修正", edit_patient_url(@patient), class:"btn btn-primary btn-block"
-    div class="col-sm-3"
-        = link_to "削除", @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-block"
+    div class="col-sm-8 offset-sm-2"
+        / 登録完了info
+        - if flash[:info]
+            div class="alert alert-success d-flex justify-content-between" role="alert"
+                span #{flash[:info]}
+                a class="btn btn-outline-success btn-sm" href="#{new_patient_path}" 続けて登録する
+        / 詳細情報
+        div class="card"
+            div class="card-header"
+                span ID #{@patient.id} 詳細情報
+            div class="card-block"
+                / 患者個別情報
+                table class="table patient-show-table"
+                    tr
+                        th 名前
+                        td = @patient.name + '(' + @patient.kana + ')'
+                    tr
+                        th 生年月日
+                        td = @patient.birthdate
+                    tr
+                        th 電話番号
+                        td = @patient.phone
+                    tr
+                        th 郵便番号
+                        td = @patient.post_code
+                    tr
+                        th 住所
+                        td = @patient.address
+                    tr
+                        th 来院理由
+                        td = @patient.reason
+                    tr
+                        th 鍼灸経験
+                        td = @patient.experience
+                    tr
+                        th 初診日
+                        td = @patient.firstday
+                    tr
+                        th 最終来院日
+                        - unless @patient.history.count == 0
+                            td = @patient.history.last.history_date
+                        - else
+                            td 履歴未入力
+                    tr
+                        th 来院回数
+                        td = @patient.history.count
+                    tr
+                        th メモ
+                        td = @patient.memo
+                / ナビ
+                div class="row"
+                    div class="col-sm-6"
+                        = link_to "登録内容の修正", edit_patient_url(@patient), class:"btn btn-primary btn-block"
+                    div class="col-sm-6"
+                        = link_to "削除", @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-block"
 
 
 / メニューリンク

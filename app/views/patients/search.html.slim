@@ -34,17 +34,17 @@ div id="app"
                     td ="{{item.address}}"
                     td ="{{item.phone}}"
                     td
-                        a v-bind:href="baseUrl + item.id" 詳細情報
+                        a class="btn btn-outline-primary btn-sm" v-bind:href="baseUrl + item.id" 詳細情報
     / 名前検索
     div v-if="target == 'name'"
         table class="table table-striped" v-if="filterName.length != 0 && filterKey.length != 0"
             thead
-                tr class="table-info"
+                tr
                     th ID
                     th 名前
                     th 住所
                     th 電話番号
-                    th 編集
+                    th
             tbody
                 tr v-for="item in filterName"
                     td ="{{item.id}}"
@@ -52,7 +52,7 @@ div id="app"
                     td ="{{item.address}}"
                     td ="{{item.phone}}"
                     td
-                        a v-bind:href="baseUrl + item.id" 詳細情報
+                        a class="btn btn-outline-primary btn-sm" v-bind:href="baseUrl + item.id" 詳細情報
 
 
 / メニューリンク

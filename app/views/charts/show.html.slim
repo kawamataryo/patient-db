@@ -1,34 +1,34 @@
 div class="row"
     / 年別売上高
-    div class="col-sm-12 mg-b-30"
+    div class="col-sm-6 mg-b-30"
         div class="card"
             div class="card-header"
                 | 年別売上高
             div class="card-block"
                 = column_chart @year_sales
     / 来院件数
-    div class="col-sm-12 mg-b-30"
+    div class="col-sm-6 mg-b-30"
         div class="card"
             div class="card-header"
                 | 月別来院件数
             div class="card-block"
-                = line_chart @month_patient
+                = line_chart @month_patient, library: {xAxis: {tickPositions: [ 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]}}
     / 月別新規患者来院件数
-    div class="col-sm-12 mg-b-30"
+    div class="col-sm-6 mg-b-30"
         div class="card"
             div class="card-header"
                 | 月別新規患者来院件数
             div class="card-block"
-                = column_chart @new_patient_chart
+                = column_chart @new_patient_chart, library: {xAxis: {tickPositions: [ 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]}}
     / 来院理由の推移
-    div class="col-sm-12 mg-b-30"
+    div class="col-sm-6 mg-b-30"
         div class="card"
             div class="card-header"
                 | 来院理由の推移
             div class="card-block"
                 = line_chart @reason_line_chart.each do |val| {:name => val.name, :data => val.data} end
     / 年齢別来院理由
-    div class="col-sm-12 mg-b-30"
+    div class="col-sm-6 mg-b-30"
         div class="card"
             div class="card-header"
                 | 年齢別来院理由
@@ -55,6 +55,13 @@ div class="row"
                 | 年齢区分
             div class="card-block"
                 = pie_chart @ages_chart
+    / 住所別
+    div class="col-sm-6 mg-b-30"
+        div class="card"
+            div class="card-header"
+                | 住所分布
+            div class="card-block"
+                = pie_chart @address_pie_chart
     / 鍼灸経験
     div class="col-sm-6 mg-b-30"
         div class="card"

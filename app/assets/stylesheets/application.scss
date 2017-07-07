@@ -124,6 +124,16 @@ $i:100;
     }
     $i: $i - 10;
 }
+$i:100;
+@while $i > -1 {
+    .mg-r-#{$i} {
+        margin-right: #{$i}px !important;
+    }
+    .mg-l-#{$i} {
+        margin-left: #{$i}px !important;
+    }
+    $i: $i - 10;
+}
 
 @media (max-width: map-get($grid-breakpoints, sm)) {
     $s:100;

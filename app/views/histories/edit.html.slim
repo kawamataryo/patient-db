@@ -1,35 +1,37 @@
-div class="card"
-    div class="card-header"
-        | 来院履歴編集
-    div class="card-block"
-        = form_for(@history) do |f|
-            / 来院日
-            div class="form-group row"
-                = f.label :history_date, '来院日', class:"col-3"
-                div class="col-9"
-                = f.date_field :history_date, class:"form-control"
-            / id
-            div class="form-group row"
-                = f.label :patient_id, 'id', class:"col-3"
-                div class="col-9"
-                = f.text_field :patient_id, class:"form-control"
-            / 名前
-            div class="form-group row"
-                = f.label :patient_name, '名前', class:"col-3"
-                div class="col-9"
-                = f.text_field :patient_name, class:"form-control"
-            / 売り上げ
-            div class="form-group row"
-                = f.label :sales, '売上', class:"col-3"
-                div class="col-9"
-                    div class="form-check form-check-inline"
-                        label  class="form-check-label" #{f.radio_button :sales, "4000", class:"form-check-input"} 4000
-                    div class="form-check form-check-inline"
-                        label  class="form-check-label" #{f.radio_button :sales, "3000", class:"form-check-input"} 3000
-                    div class="form-check form-check-inline"
-                        label  class="form-check-label" #{f.radio_button :sales, "2500", class:"form-check-input"} 2500
-            / 送信ボタン
-            = f.submit "編集完了", class:"btn btn-primary btn-block mg-t-30"
+div class="row"
+    div class="col-sm-6 push-sm-3"
+        div class="card"
+            div class="card-header"
+                | 来院履歴編集
+            div class="card-block"
+                = form_for(@history) do |f|
+                    / 来院日
+                    div class="form-group row"
+                        = f.label :history_date, '来院日', class:"col-3"
+                        div class="col-9"
+                            = f.date_field :history_date, class:"form-control"
+                    / id
+                    div class="form-group row"
+                        = f.label :patient_id, 'ID', class:"col-3"
+                        div class="col-9"
+                            = f.text_field :patient_id, class:"form-control"
+                    / 名前
+                    div class="form-group row"
+                        = f.label :patient_name, '名前', class:"col-3"
+                        div class="col-9"
+                            = f.text_field :patient_name, class:"form-control"
+                    / 売り上げ
+                    div class="form-group row"
+                        = f.label :sales, '売上', class:"col-3"
+                        div class="col-9"
+                            div class="form-check form-check-inline"
+                                label  class="form-check-label" #{f.radio_button :sales, "4000", class:"form-check-input"} 4000
+                            div class="form-check form-check-inline"
+                                label  class="form-check-label" #{f.radio_button :sales, "3000", class:"form-check-input"} 3000
+                            div class="form-check form-check-inline"
+                                label  class="form-check-label" #{f.radio_button :sales, "2500", class:"form-check-input"} 2500
+                    / 送信ボタン
+                    = f.submit "編集完了",data: { confirm: "この内容で編集してよろしいでしょうか?" }, class:"btn btn-primary btn-block mg-t-30"
 
 / メニューリンク
 = render partial: 'shared/menu-link'
