@@ -9,7 +9,7 @@ class ChartsController < ApplicationController
         #------------------------------------------------------------------
         # 月別来院件数
         #------------------------------------------------------------------
-        @month_patient = History.group_by_month(:history_date).count
+        @month_patient = History.group_by_month(:history_date, format: "%Y年%b").count
 
         #------------------------------------------------------------------
         # 月別新規患者
@@ -30,6 +30,26 @@ class ChartsController < ApplicationController
         # 月別来院件数
         #------------------------------------------------------------------
         @reason_pie_chart = Patient.group(:reason).count
+
+        #------------------------------------------------------------------
+        # 地域別患者割合
+        #------------------------------------------------------------------
+        a_hitachinaka = Patient.where('address like(?)', "%ひたちなか%").count
+        a_mito = Patient.where('address like(?)', "%水戸%").count
+        a_naka = Patient.where('address like(?)', "%那珂%").count
+        a_tokai = Patient.where('address like(?)', "%東海%").count
+        a_hitatchi = Patient.where('address like(?)', "%日立%").count
+        a_oarai = Patient.where('address like(?)', "%大洗%").count
+        a_other = Patient.count - a_hitachinaka - a_hitatchi - a_naka - a_tokai - a_oarai
+        @address_pie_chart = {
+            "ひたちなか" => a_hitachinaka,
+            "水戸" => a_mito,
+            "那珂" => a_naka,
+            "東海" => a_tokai,
+            "日立" => a_hitatchi,
+            "大洗" => a_oarai,
+            "その他" => a_other,
+        }
 
         #------------------------------------------------------------------
         # 来院理由

@@ -50,7 +50,7 @@ div id="app" class="container"
                                             label  class="form-check-label"
                                                 input type="radio" value="2500" name="sales[#{i-1}]" class="form-check-input"  2500
                         /送信btn
-                        = submit_tag "登録", class:"btn btn-primary btn-block"
+                        = submit_tag "登録", data: { confirm: "この内容で登録してよろしいでしょうか?" }, class:"btn btn-primary btn-block"
 
 
 / メニューリンク
