@@ -5,6 +5,7 @@ class HistoriesController < ApplicationController
     # 履歴の追加
     def new
         gon.patients = Patient.all
+        @history = History.new
     end
 
     # 履歴のDB記録
@@ -29,6 +30,9 @@ class HistoriesController < ApplicationController
                 # 保存
                 if @history.save
                     success += 1
+                else
+                    # newへ戻る
+                    render 'new'
                 end
             end
             count += 1

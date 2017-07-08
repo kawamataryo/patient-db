@@ -1,9 +1,11 @@
-- if flash[:info]
-    div class="alert alert-success" role="alert"
-        = flash[:info]
 
 div class="row"
     div class="col-sm-8 offset-sm-2"
+        / validate show
+        - if flash[:info]
+            div class="alert alert-success" role="alert"
+                = flash[:info]
+        / list all
         table class="table table-striped"
             thead
                 tr
