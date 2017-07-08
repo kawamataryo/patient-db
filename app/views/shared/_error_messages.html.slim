@@ -1,0 +1,6 @@
+- if @patient.errors.any?
+    div class="alert alert-danger"
+        h4 class="alert-heading" エラーが #{@patient.errors.count} 項目あります
+        ul
+            - @patient.errors.full_messages.each do |msg|
+                li #{msg}
