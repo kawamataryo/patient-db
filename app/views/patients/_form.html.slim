@@ -15,7 +15,7 @@ div class="row patient-form"
             = f.label :sex, '性別', class:"col-3"
             div class="col-9"
                 div class="form-check form-check-inline"
-                    label  class="form-check-label" #{f.radio_button :sex, "男性", class:"form-check-input"} 男性
+                    label  class="form-check-label" #{f.radio_button :sex, "男性", class:"form-check-input", checked: true} 男性
                 div class="form-check form-check-inline"
                     label  class="form-check-label" #{f.radio_button :sex, "女性", class:"form-check-input"} 女性
         / birthdate
@@ -45,7 +45,7 @@ div class="row patient-form"
             div class="col-9"
                 div class="form-group"
                     div class="form-check form-check-inline"
-                        label  class="form-check-label" #{f.radio_button :reason, "ホームページ", class:"form-check-input"} ホームページ
+                        label  class="form-check-label" #{f.radio_button :reason, "ホームページ", class:"form-check-input", checked: true} ホームページ
                     div class="form-check form-check-inline"
                         label  class="form-check-label" #{f.radio_button :reason, "口コミ", class:"form-check-input"} 口コミ
                     div class="form-check form-check-inline"
@@ -58,7 +58,7 @@ div class="row patient-form"
             div class="col-9"
                 div class="form-group"
                     div class="form-check form-check-inline"
-                        label  class="form-check-label" #{f.radio_button :experience, "あり", class:"form-check-input"} あり
+                        label  class="form-check-label" #{f.radio_button :experience, "あり", class:"form-check-input", checked: true} あり
                     div class="form-check form-check-inline"
                         label  class="form-check-label" #{f.radio_button :experience, "なし", class:"form-check-input"} なし
         / firstDay
@@ -71,3 +71,4 @@ div class="row patient-form"
             = f.label :memo, 'メモ', class:"col-3"
             div class="col-9"
                 = f.text_area :memo, class:"form-control", rows: 8
+
