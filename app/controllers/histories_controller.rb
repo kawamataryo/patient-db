@@ -11,27 +11,29 @@ class HistoriesController < ApplicationController
     # 履歴のDB記録
     def create
         # postの取得
-        @history_date = params[:history_date]
-        @patient_id = params[:patient_id]
-        @sales = params[:sales]
+        history_date = params[:history_date]
+        patient_id = params[:patient_id]
+        patient_name = params[:patient_name]
+        sales = params[:sales]
 
         # DB記録
         count = 0
         success = 0
-        for id in @patient_id do
-            # idが空行でなかったら保存へ
+        for id in patient_id do
+            # idが空行でなかったjkら保存へ
             unless id == ''
                 @history = History.new
                 # データ挿入
-                @history.history_date = @history_date
+                @history.history_date = history_date
                 @history.patient_id = id
-                @history.patient_name = Patient.find(id).name
-                @history.sales = @sales["#{count}"].to_i
+                @history.patient_name = patient_name[count]
+                @history.sales = sales["#{count}"].to_i
                 # 保存
                 if @history.save
                     success += 1
                 else
                     # newへ戻る
+                    gon.patients = Patient.all
                     render 'new'
                 end
             end

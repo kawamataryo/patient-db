@@ -22,7 +22,7 @@ div id="app" class="container"
                             span for="history_date" class="col-4 m-auto" 来院履歴登録
                             label for="history_date" class="col-4 text-right m-auto" 診療日
                             div class="col-4"
-                                input type="date" name="history_date" class="form-control"
+                                input type="date" name="history_date" class="form-control" required=""
                     div class="card-block"
                         / 売り上げ履歴
                         table class="table table-sm"
@@ -30,25 +30,25 @@ div id="app" class="container"
                                 th ID
                                 th 名前
                                 th 売上高
-                            - (1..9).each do |i|
+                            - (0..8).each do |i|
                                 tr
                                     td class="width-30"
                                         /id入力
-                                        input type="text" name="patient_id[]" v-model="id[#{i-1}]" class="form-control"
+                                        input type="number" name="patient_id[]" v-model="id[#{i}]" class="form-control" onchange="checkId(this)"
                                     td class="width-30"
                                         /名前表示
-                                        p v-if="searchName.length != 0" ="{{searchName(id[#{i-1}])}}"
+                                        input type="text" name="patient_name[]" v-model="searchName(id[#{i}])" class="form-control" readonly=""
                                     td class="width-40"
                                         /金額選択
                                         div class="form-check form-check-inline"
                                             label  class="form-check-label"
-                                                input type="radio" value="4000" name="sales[#{i-1}]" class="form-check-input" checked=""  4000
+                                                input type="radio" value="4000" name="sales[#{i}]" class="form-check-input" checked=""  4000
                                         div class="form-check form-check-inline"
                                             label  class="form-check-label"
-                                                input type="radio" value="3000" name="sales[#{i-1}]" class="form-check-input"  3000
+                                                input type="radio" value="3000" name="sales[#{i}]" class="form-check-input"  3000
                                         div class="form-check form-check-inline"
                                             label  class="form-check-label"
-                                                input type="radio" value="2500" name="sales[#{i-1}]" class="form-check-input"  2500
+                                                input type="radio" value="2500" name="sales[#{i}]" class="form-check-input"  2500
                         /送信btn
                         = submit_tag "登録", class:"btn btn-primary btn-block"
 
@@ -58,47 +58,61 @@ div id="app" class="container"
 
 
 javascript:
+    // -------------------------------------------------------
+    // idのvalidate（html5)
+    // -------------------------------------------------------
+    window.checkId = function(elm) {
+      if (elm.value < 1 || elm.value > gon.patients.length) {
+        elm.setCustomValidity('患者名簿に登録されていないIDが入力されています');
+      }
+      else {
+        elm.setCustomValidity('');
+      }
+    };
+    // -------------------------------------------------------
+    // vue id検索　名前自動入力
+    // -------------------------------------------------------
     var app = new Vue({
-    el: '#app',
-    data: {
-        items: gon.patients,
-        filterKey: '',
-        id: ['','','','','','','','',''],
-    },
-    computed: {
-        // filterByとlimitBy的な機能でpatientのmodelからデータを検索
-        filterItem: function() {
-            var count = 0
-            return this.items.filter(function(value) {
-                if (value.name.includes(this.filterKey) && count <= 8) {
-                    count+=1
-                    return true
-                }else {
-                    return false
-                }
-            }.bind(this))
+        el: '#app',
+        data: {
+            items: gon.patients,
+            filterKey: '',
+            id: ['','','','','','','','',''],
         },
-    },
-    methods: {
-        //idをフォームに入力するもの
-        insertId: function(value) {
-            // 未入力のinputに値追加
-            for(var i = 0; i < this.id.length; i++) {
-                if(this.id[i] == '') {
-                    this.id[i] = value
-                    break
-                }
-            }
-            // 検索フォームを初期化
-            this.filterKey = ''
-        },
-        // idから名前検索表示
-        searchName: function(inputId) {
-            if(inputId != '') {
+        computed: {
+            // filterByとlimitBy的な機能でpatientのmodelからデータを検索
+            filterItem: function() {
+                var count = 0
                 return this.items.filter(function(value) {
-                    return (value.id == inputId)
-                })[0]['name']
+                    if (value.name.includes(this.filterKey) && count <= 8) {
+                        count+=1
+                        return true
+                    }else {
+                        return false
+                    }
+                }.bind(this))
+            },
+        },
+        methods: {
+            //idをフォームに入力するもの
+            insertId: function(value) {
+                // 未入力のinputに値追加
+                for(var i = 0; i < this.id.length; i++) {
+                    if(this.id[i] == '') {
+                        this.id[i] = value
+                        break
+                    }
+                }
+                // 検索フォームを初期化
+                this.filterKey = ''
+            },
+            // idから名前検索表示
+            searchName: function(inputId) {
+                if(inputId != '') {
+                    return this.items.filter(function(value) {
+                        return (value.id == inputId)
+                    })[0]['name']
+                }
             }
         }
-    }
-  })
+    })
