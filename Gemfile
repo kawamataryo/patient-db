@@ -90,3 +90,5 @@ gem "font-awesome-rails"
 gem "chartkick"
 # group
 gem 'groupdate'
+# 論理削除の追加
+gem 'paranoia'
