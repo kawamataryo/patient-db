@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170722072715) do
+ActiveRecord::Schema.define(version: 20170819062705) do
 
   create_table "histories", force: :cascade do |t|
     t.date "history_date"
@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 20170722072715) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "delete_flag", default: false, null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_patients_on_deleted_at"
   end
 
   create_table "users", force: :cascade do |t|
