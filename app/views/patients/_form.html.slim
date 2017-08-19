@@ -1,5 +1,10 @@
 div class="row patient-form"
     div class="col-sm-6"
+        / ID
+        div class="form-group row"
+            = f.label :patient_id, '患者ID', class:"col-3"
+            div class="col-9"
+                = f.number_field :patient_id, class:"form-control", required:"", value:@patient_id_defo
         / 名前
         div class="form-group row"
             = f.label :name, '名前', class:"col-3"

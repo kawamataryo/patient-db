@@ -14,6 +14,7 @@ class PatientsController < ApplicationController
 
     # 患者情報追加
     def new
+        @patient_id_defo = Patient.count + 1
         @patient = Patient.new
     end
 
@@ -24,6 +25,7 @@ class PatientsController < ApplicationController
             flash[:info] = "#{@patient.name}さんの登録が完了しました。"
             redirect_to @patient
         else
+            @patient_id_defo = Patient.new(patient_params).patient_id #formでvalueに初期値を設定しているのでその関係で
             render 'new'
         end
     end
@@ -36,6 +38,7 @@ class PatientsController < ApplicationController
     # 患者情報修正
     def edit
         @patient = Patient.find(params[:id])
+        @patient_id_defo = Patient.find(params[:id]).patient_id #formでvalueに初期値を設定しているのでその関係で
     end
 
     # 患者情報の修正をDBへ反映
@@ -62,7 +65,7 @@ class PatientsController < ApplicationController
     # フォーム受け取り要素の選別
     private
     def patient_params
-        params.require(:patient).permit(:name, :kana, :sex, :birthdate, :phone,
+        params.require(:patient).permit(:patient_id, :name, :kana, :sex, :birthdate, :phone,
                                         :postCode, :address, :reason, :experience,
                                         :firstday, :memo)
     end
