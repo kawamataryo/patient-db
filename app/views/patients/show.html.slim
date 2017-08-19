@@ -9,10 +9,14 @@ div class="row"
         / 詳細情報
         div class="card"
             div class="card-header"
-                span ID #{@patient.id} 詳細情報
+                span  詳細情報
             div class="card-block"
                 / 患者個別情報
                 table class="table patient-show-table"
+                    tr
+                        th 患者ID
+                        td = @patient.patient_id
+                    tr
                     tr
                         th 名前
                         td = @patient.name + '(' + @patient.kana + ')'
