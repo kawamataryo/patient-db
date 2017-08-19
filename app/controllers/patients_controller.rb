@@ -50,12 +50,17 @@ class PatientsController < ApplicationController
 
     # 患者情報の削除
     def destroy
-        # レコード削除
-        Patient.find(params[:id]).destroy
-        # autoincrementの初期化
-        Patient.reset_pk_sequence
+        #レコード削除
+        #Patient.find(params[:id]).destroy
+        #autoincrementの初期化
+        #Patient.reset_pk_sequence
 
+        #削除フラグをonにする
+        @patient = Patient.find(params[:id])
+        @patient.delete_flag = "true"
+        @patient.save
         redirect_to patients_url
+
     end
 
 
@@ -64,6 +69,6 @@ class PatientsController < ApplicationController
     def patient_params
         params.require(:patient).permit(:name, :kana, :sex, :birthdate, :phone,
                                         :postCode, :address, :reason, :experience,
-                                        :firstDay, :memo)
+                                        :firstday, :memo)
     end
 end
