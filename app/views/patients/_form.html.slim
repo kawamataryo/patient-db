@@ -65,7 +65,7 @@ div class="row patient-form"
         div class="form-group row"
             = f.label :firstday, '初診日', class:"col-3"
             div class="col-9"
-                = f.date_field:firstday, class:"form-control", required:""
+                = f.date_field :firstday, class:"form-control", required:""
         / memo
         div class="form-group row"
             = f.label :memo, 'メモ', class:"col-3"
