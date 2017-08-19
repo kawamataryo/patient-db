@@ -11,7 +11,7 @@ table class="table table-striped"
     tbody
         - @patients.each do |patient|
             tr
-                td = patient.id
+                td = patient.patient_id
                 td = patient.name + "(" + patient.kana + ")"
                 td = patient.sex
                 td = patient.birthdate
