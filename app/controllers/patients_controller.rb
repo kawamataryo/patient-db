@@ -51,18 +51,13 @@ class PatientsController < ApplicationController
     # 患者情報の削除
     def destroy
         #レコード削除
-        #Patient.find(params[:id]).destroy
+        Patient.find(params[:id]).destroy
         #autoincrementの初期化
         #Patient.reset_pk_sequence
 
-        #削除フラグをonにする
-        @patient = Patient.find(params[:id])
-        @patient.delete_flag = "true"
-        @patient.save
         redirect_to patients_url
 
     end
-
 
     # フォーム受け取り要素の選別
     private
