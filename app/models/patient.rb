@@ -5,5 +5,4 @@ class Patient < ApplicationRecord
     has_many :history
     #validate
     validates :name, presence: true
-    validates :firstday, presence: true
 end
