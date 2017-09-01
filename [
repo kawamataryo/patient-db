@@ -13,7 +13,8 @@ div class="row"
                     th ID
                     th 名前
                     th 売り上げ
-                    th 編集
+                    th
+                    th
             tbody
                 - @histories.each do |history|
                     tr
@@ -22,10 +23,8 @@ div class="row"
                         td = history.patient_name
                         td = history.sales
                         td
-                            = link_to edit_history_path(history.id), class:"btn btn-sm btn-outline-success mg-r-10" do
-                                i class="fa fa-pencil"
-                            = link_to history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-sm btn-outline-danger" do
-                                i class="fa fa-trash"
+                            = link_to "内容修正", edit_history_path(history.id), class:"btn btn-sm btn-outline-primary mg-r-10"
+                            = link_to "削除", history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-sm btn-outline-danger"
 
         = paginate @histories, theme: 'twitter-bootstrap-4'
 
