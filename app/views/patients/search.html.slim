@@ -1,62 +1,75 @@
 / 検索フォーム
 div id="app"
     div class="patient-search-box mg-b-50"
-        / 検索項目の選択
-        div class="form-check form-check-inline"
-            label class="form-check-label"
-                input type="radio" name="target" class="form-check-input" value="phone" v-model="target" checked=""  電話番号で検索
-        div class="form-check form-check-inline"
-            label class="form-check-label"
-                input type="radio" name="target" class="form-check-input" value="name" v-model="target"  名前で検索
-        / 検索フォーム
-        div class="input-group mg-t-20"
-            span class="input-group-btn"
-                button class="btn btn-secondary" type="button"
-                    i class="fa fa-search"
-                    |  #{"{{search_title}}"}
-            input class="form-control form-control-lg" v-model='filterKey'
+        div class="card"
+            div class="card-header"
+                / 検索項目の選択
+                div class="form-check form-check-inline"
+                    label class="form-check-label"
+                        input type="radio" name="target" class="form-check-input" value="phone" v-model="target" checked=""  電話番号で検索
+                div class="form-check form-check-inline"
+                    label class="form-check-label"
+                        input type="radio" name="target" class="form-check-input" value="name" v-model="target"  名前で検索
+            div class="card-block"
+                / 検索フォーム
+                div class="input-group"
+                    span class="input-group-btn"
+                        button class="btn btn-secondary" type="button"
+                            i class="fa fa-search"
+                            |  #{"{{search_title}}"}
+                    input class="form-control form-control-lg" v-model='filterKey'
+                / メニューリンク
+                = render partial: 'shared/menu-link'
 
     / 検索結果テーブル
     / 電話番号検索
     div v-if="target == 'phone'"
-        table class="table table-striped" v-if="filterPhone.length != 0 && filterKey.length != 0"
-            thead
-                tr
-                    th ID
-                    th 名前
-                    th 住所
-                    th 電話番号
-                    th 編集
-            tbody
-                tr v-for="item in filterPhone"
-                    td ="{{item.patient_id}}"
-                    td ="{{item.name}}"
-                    td ="{{item.address}}"
-                    td ="{{item.phone}}"
-                    td
-                        a class="btn btn-outline-primary btn-sm" v-bind:href="baseUrl + item.id" 詳細情報
+        div class="card" v-if="filterPhone.length != 0 && filterKey.length != 0"
+            div class="card-header"
+                span 検索結果
+            div class="card-block"
+                table class="table table-striped"
+                    thead
+                        tr
+                            th ID
+                            th 名前
+                            th 住所
+                            th 電話番号
+                            th 編集
+                    tbody
+                        tr v-for="item in filterPhone"
+                            td ="{{item.patient_id}}"
+                            td ="{{item.name}}"
+                            td ="{{item.address}}"
+                            td ="{{item.phone}}"
+                            td
+                                a class="btn btn-primary btn-sm" v-bind:href="baseUrl + item.id"
+                                    i.fa.fa-info-circle
     / 名前検索
     div v-if="target == 'name'"
-        table class="table table-striped" v-if="filterName.length != 0 && filterKey.length != 0"
-            thead
-                tr
-                    th ID
-                    th 名前
-                    th 住所
-                    th 電話番号
-                    th
-            tbody
-                tr v-for="item in filterName"
-                    td ="{{item.patient_id}}"
-                    td ="{{item.name}}"
-                    td ="{{item.address}}"
-                    td ="{{item.phone}}"
-                    td
-                        a class="btn btn-outline-primary btn-sm" v-bind:href="baseUrl + item.id" 詳細情報
+        div class="card" v-if="filterName.length != 0 && filterKey.length != 0"
+            div class="card-header"
+                span 検索結果
+            div class="card-block"
+                table class="table table-striped"
+                    thead
+                        tr
+                            th ID
+                            th 名前
+                            th 住所
+                            th 電話番号
+                            th
+                    tbody
+                        tr v-for="item in filterName"
+                            td ="{{item.patient_id}}"
+                            td ="{{item.name}}"
+                            td ="{{item.address}}"
+                            td ="{{item.phone}}"
+                            td
+                                a class="btn btn-primary btn-sm" v-bind:href="baseUrl + item.id"
+                                    i.fa.fa-info-circle
 
 
-/ メニューリンク
-= render partial: 'shared/menu-link'
 
 
 javascript:

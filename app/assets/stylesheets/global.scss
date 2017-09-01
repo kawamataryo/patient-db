@@ -1,0 +1,363 @@
+// -----------------------------------------------------
+// variable mixin
+// -----------------------------------------------------
+
+@mixin base-box-shadow() {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+// -----------------------------------------------------
+// global
+// -----------------------------------------------------
+// bacground
+
+.body-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    filter: blur(5px);
+    &.patients {
+        background-image:  image-url("patient-bg");
+    }
+    &.histories {
+        background-image:  image-url("history-bg");
+    }
+    &.charts {
+        background-image:  image-url("chart-bg");
+    }
+    &.patients, &.histories, &.charts {
+        &:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000;
+            opacity: 0.2;
+        }
+    }
+}
+
+//footer
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0px;
+    .copylight {
+        margin-bottom: 0;
+    }
+}
+
+//table
+.table {
+    background-color: #fff;
+    @include base-box-shadow()
+}
+
+//card
+.card {
+    @include base-box-shadow()
+}
+
+//navbar
+.navbar {
+    .patients &, .histories &, .charts & {
+        @include base-box-shadow()
+    }
+}
+
+
+// -----------------------------------------------------
+// utility
+// -----------------------------------------------------
+//メディアクエリ
+@mixin max-md {
+    @media (max-width: map-get($grid-breakpoints, md)) {
+        @content;
+    }
+}
+@mixin max-sm {
+    @media (max-width: map-get($grid-breakpoints, sm)) {
+        @content;
+    }
+}
+@mixin max-xs {
+    @media (max-width: map-get($grid-breakpoints, xs)) {
+        @content;
+    }
+}
+@mixin min-md {
+    @media (min-width: map-get($grid-breakpoints, md)) {
+        @content;
+    }
+}
+@mixin min-sm {
+    @media (min-width: map-get($grid-breakpoints, sm)) {
+        @content;
+    }
+}
+@mixin min-xs {
+    @media (min-width: map-get($grid-breakpoints, xs)) {
+        @content;
+    }
+}
+@mixin max-smafo {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+//5カラム定義
+.col-xs-15, .col-sm-15, .col-md-15, .col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+@media (min-width: map-get($grid-breakpoints, sm)) {
+    .col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+    .col-md-offset-15 {
+        margin-left: 4.3333333%;
+    }
+}
+
+//スペース
+.pd-l-0 {
+    padding-left: 0px !important;
+}
+.pd-r-0 {
+    padding-right: 0px !important;
+}
+@media (max-width: map-get($grid-breakpoints, xs)) {
+    .xs-pd-0 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .xs-pd-r-0 {
+        padding-right: 0px;
+    }
+    .xs-pd-l-0 {
+        padding-left: 0px;
+    }
+}
+@media (max-width: 991px) {
+    .smxs-pd-0 {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+$i:100;
+@while $i > -1 {
+    .mg-t-#{$i} {
+        margin-top: #{$i}px !important;
+    }
+    .mg-b-#{$i} {
+        margin-bottom: #{$i}px !important;
+    }
+    $i: $i - 10;
+}
+$i:100;
+@while $i > -1 {
+    .mg-r-#{$i} {
+        margin-right: #{$i}px !important;
+    }
+    .mg-l-#{$i} {
+        margin-left: #{$i}px !important;
+    }
+    $i: $i - 10;
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+    $s:100;
+    @while $s > -1 {
+        .sm-mg-t-#{$s} {
+            margin-top: #{$s}px !important;
+        }
+        .sm-mg-b-#{$s} {
+            margin-bottom: #{$s}px !important;
+        }
+        $s: $s - 10;
+    }
+}
+
+@media (max-width: map-get($grid-breakpoints, xs)) {
+    $s:100;
+    @while $s > -1 {
+        .xs-mg-t-#{$s} {
+            margin-top: #{$s}px !important;
+        }
+        .xs-mg-b-#{$s} {
+            margin-bottom: #{$s}px !important;
+        }
+        $s: $s - 10;
+    }
+}
+
+@media (max-width: map-get($grid-breakpoints, md)) {
+    $s:100;
+    @while $s > -1 {
+        .md-mg-t-#{$s} {
+            margin-top: #{$s}px !important;
+        }
+        .md-mg-b-#{$s} {
+            margin-bottom: #{$s}px !important;
+        }
+        $s: $s - 10;
+    }
+}
+$i:100;
+@while $i >= 0 {
+    .pd-t-#{$i} {
+        padding-top: #{$i}px !important;
+    }
+    .pd-b-#{$i} {
+        padding-bottom: #{$i}px !important;
+    }
+    $i: $i - 10;
+}
+
+@media (max-width: map-get($grid-breakpoints, xs)) {
+    $s:100;
+    @while $s >= 0 {
+        .xs-pd-t-#{$s} {
+            padding-top: #{$s}px !important;
+        }
+        .xs-pd-b-#{$s} {
+            padding-bottom: #{$s}px !important;
+        }
+        $s: $s - 10;
+    }
+}
+$i:100;
+@while $i >= 0 {
+    .pd-l-#{$i} {
+        padding-left: #{$i}px !important;
+    }
+    .pd-r-#{$i} {
+        padding-right: #{$i}px !important;
+    }
+    $i: $i - 5;
+}
+
+@media (max-width: map-get($grid-breakpoints, xs)) {
+    $s:100;
+    @while $s >= 0 {
+        .xs-pd-l-#{$s} {
+            padding-left: #{$s}px !important;
+        }
+        .xs-pd-r-#{$s} {
+            padding-right: #{$s}px !important;
+        }
+        $s: $s - 5;
+    }
+}
+@media (max-width: map-get($grid-breakpoints, sm)) {
+    $s:100;
+    @while $s >= 0 {
+        .sm-pd-l-#{$s} {
+            padding-left: #{$s}px !important;
+        }
+        .sm-pd-r-#{$s} {
+            padding-right: #{$s}px !important;
+        }
+        $s: $s - 5;
+    }
+}
+//サイズ変更
+.width-100 {
+    width: 100%;
+}
+.width-90 {
+    width: 90%;
+}
+.width-80 {
+    width: 80%;
+}
+.width-70 {
+    width: 70%;
+}
+.width-60 {
+    width: 60%;
+}
+.width-50 {
+    width: 50%;
+}
+.width-40 {
+    width: 40%;
+}
+.width-30 {
+    width: 30%;
+}
+.width-20 {
+    width: 20%;
+}
+.width-10 {
+    width: 10%;
+}
+.md-width-80 {
+    @include min-md {
+        width: 80%;
+    }
+}
+.md-width-60 {
+    @include min-md {
+        width: 60%;
+    }
+}
+.md-width-40 {
+    @include min-md {
+        width: 40%;
+    }
+}
+$i:1200;
+@while $i >= 0 {
+    .w-#{$i} {
+        max-width: #{$i}px;
+        margin: auto;
+    }
+    $i: $i - 100;
+}
+
+//gutter設定
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.l-gutters-min-sm {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col,
+    > [class*="col-"] {
+        @include min-sm {
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+    }
+}
