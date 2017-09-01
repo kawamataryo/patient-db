@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
-  get 'charts/show'
 
-  devise_for :users
-  get 'histories/new'
+    #グラフ
+    get 'charts/show'
 
-  get 'histories/show'
-
-  get 'histories/index'
-
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    # 認証
+    devise_for :users
 
     # トップページ
     root 'static__pages#home'
