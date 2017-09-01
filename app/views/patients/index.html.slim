@@ -1,32 +1,35 @@
-table class="table table-striped"
-    thead
-        tr
-            th ID
-            th 名前(ふりがな)
-            th 性別
-            th 年齢
-            th 住所
-            th 電話番号
-            th 編集
-    tbody
-        - @patients.each do |patient|
-            tr
-                td = patient.patient_id
-                td = patient.name + "(" + patient.kana + ")"
-                td = patient.sex
-                td = patient.birthdate
-                td = patient.address
-                td = patient.phone
-                td
-                    = link_to patient_path(patient.id), class:"btn btn-outline-primary btn-sm mg-r-10" do
-                        i class="fa fa-info-circle"
-                    = link_to edit_patient_url(patient), class:"btn btn-outline-success btn-sm mg-r-10" do
-                        i class="fa fa-pencil"
-                    = link_to patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-outline-danger btn-sm" do
-                        i class="fa fa-trash"
 
-= paginate @patients
-
-/ メニューリンク
-= render partial: 'shared/menu-link'
+div class="card"
+    div class="card-header"
+        span  患者情報一覧
+    div class="card-block"
+        table class="table table-striped"
+            thead
+                tr
+                    th ID
+                    th 名前(ふりがな)
+                    th 性別
+                    th 年齢
+                    th 住所
+                    th 電話番号
+                    th 編集
+            tbody
+                - @patients.each do |patient|
+                    tr
+                        td = patient.patient_id
+                        td = patient.name + "(" + patient.kana + ")"
+                        td = patient.sex
+                        td = patient.birthdate
+                        td = patient.address
+                        td = patient.phone
+                        td
+                            = link_to patient_path(patient.id), class:"btn btn-primary btn-sm mg-r-10" do
+                                i class="fa fa-info-circle"
+                            = link_to edit_patient_url(patient), class:"btn btn-success btn-sm mg-r-10" do
+                                i class="fa fa-pencil"
+                            = link_to patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-sm" do
+                                i class="fa fa-trash"
+        = paginate @patients
+        / メニューリンク
+        = render partial: 'shared/menu-link'
 

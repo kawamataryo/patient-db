@@ -1,35 +1,38 @@
 
 div class="row"
     div class="col-sm-8 offset-sm-2"
-        / validate show
-        - if flash[:info]
-            div class="alert alert-success" role="alert"
-                = flash[:info]
-        / list all
-        table class="table table-striped"
-            thead
-                tr
-                    th 日付
-                    th ID
-                    th 名前
-                    th 売り上げ
-                    th 編集
-            tbody
-                - @histories.each do |history|
-                    tr
-                        td = history.history_date
-                        td = history.patient_id
-                        td = history.patient_name
-                        td = history.sales
-                        td
-                            = link_to edit_history_path(history.id), class:"btn btn-sm btn-outline-success mg-r-10" do
-                                i class="fa fa-pencil"
-                            = link_to history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-sm btn-outline-danger" do
-                                i class="fa fa-trash"
+        div class="card"
+            div class="card-header"
+                span  患者情報一覧
+            div class="card-block"
+                / validate show
+                - if flash[:info]
+                    div class="alert alert-success" role="alert"
+                        = flash[:info]
+                / list all
+                table class="table table-striped"
+                    thead
+                        tr
+                            th 日付
+                            th ID
+                            th 名前
+                            th 売り上げ
+                            th 編集
+                    tbody
+                        - @histories.each do |history|
+                            tr
+                                td = history.history_date
+                                td = history.patient_id
+                                td = history.patient_name
+                                td = history.sales
+                                td
+                                    = link_to edit_history_path(history.id), class:"btn btn-sm btn-success mg-r-10" do
+                                        i class="fa fa-pencil"
+                                    = link_to history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-sm btn-danger" do
+                                        i class="fa fa-trash"
+                / paging
+                = paginate @histories, theme: 'twitter-bootstrap-4'
 
-        = paginate @histories, theme: 'twitter-bootstrap-4'
-
-
-/ メニューリンク
-= render partial: 'shared/menu-link'
+                / メニューリンク
+                = render partial: 'shared/menu-link'
 
