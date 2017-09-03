@@ -17,11 +17,11 @@ div class="card"
                 - @patients.each do |patient|
                     tr
                         td = patient.patient_id
-                        td = patient.name + "(" + patient.kana + ")"
+                        td == patient.kana.present? ? patient.name + "<br><small>(" + patient.kana + ")</small>" : patient.name
                         td = patient.sex
-                        td = patient.birthdate
+                        td = age(patient.birthdate)
                         td = patient.address
-                        td = patient.phone
+                        td = phone_number_format(patient.phone)
                         td
                             = link_to patient_path(patient.id), class:"btn btn-primary btn-sm mg-r-10" do
                                 i class="fa fa-info-circle"

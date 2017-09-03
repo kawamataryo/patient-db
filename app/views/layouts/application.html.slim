@@ -7,6 +7,9 @@ html
         = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
         = include_gon
         = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+        / googleweb fonts
+        = stylesheet_link_tag "application", 'https://fonts.googleapis.com/css?family=Teko', :media => "all"
+        / 郵便番号自動入力スクリプト
         script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"
     body class="pd-t-90 pd-b-50"
         div class="#{controller.controller_path} body-wrap"
@@ -22,7 +25,9 @@ html
                         span class="fa-stack fa-lg"
                             i class="fa fa-square-o fa-stack-2x"
                             i class="fa fa-user fa-stack-1x"
-                        | 患者情報DB
+                        div.logo-text-wrap
+                            span.logo-text-main Patient DB
+                            span.logo-text-sub 患者情報データベース
                     / メニューリスト
                     div class="collapse navbar-collapse" id="nav-content"
                         - if user_signed_in?
@@ -30,13 +35,13 @@ html
                                 li class="nav-item"
                                     = link_to "ホーム", root_path, :class => 'nav-link'
                                 li class="nav-item"
-                                    = link_to "患者一覧", patients_path, :class => 'nav-link'
-                                li class="nav-item"
                                     = link_to "患者登録", new_patient_path, :class => 'nav-link'
                                 li class="nav-item"
                                     = link_to "履歴入力", new_history_path, :class => 'nav-link'
                                 li class="nav-item"
                                     = link_to "患者検索", search_path, :class => 'nav-link'
+                                li class="nav-item"
+                                    = link_to "患者一覧", patients_path, :class => 'nav-link'
                                 li class="nav-item"
                                     = link_to "統計情報", charts_show_path, :class => 'nav-link'
                             ul class="navbar-nav ml-auto"

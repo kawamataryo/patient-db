@@ -43,6 +43,29 @@
     }
 }
 
+//header
+header {
+    .logo-text-wrap {
+        display: inline-block;
+        position: relative;
+        width: 130px;
+        line-height: 1;
+        .logo-text-main {
+            font-family: 'Teko', sans-serif;
+            font-weight: bolder;
+            position: absolute;
+            font-size: 37px;
+            top: -32px;
+        }
+        .logo-text-sub {
+            position: absolute;
+            font-weight: thin;
+            font-size: 12px;
+            top: 2px;
+        }
+    }
+}
+
 //footer
 footer {
     position: fixed;
