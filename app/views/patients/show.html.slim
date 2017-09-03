@@ -14,9 +14,9 @@ div class="row"
                         span  詳細情報
                     div.col-6
                         div.text-right
-                            = link_to edit_patient_url(@patient), class:"btn btn-success mg-r-10" do
+                            = link_to edit_patient_url(@patient), class:"btn btn-success mg-r-10 btn-sm" do
                                 i.fa.fa-pencil
-                            = link_to @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger" do
+                            = link_to @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-sm" do
                                 i.fa.fa-trash
             div class="card-block"
                 / 患者個別情報

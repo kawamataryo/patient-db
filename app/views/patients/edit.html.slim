@@ -6,7 +6,7 @@ div class="card"
             / form 読み込み
             = render partial: 'patients/form', locals: { f: f }
             / 送信ボタン
-            = f.submit "編集完了",data: { confirm: "この内容で編集してよろしいでしょうか?" }, class:"btn btn-primary btn-block mg-t-30"
+            = f.submit "編集完了",data: { confirm: "この内容で編集してよろしいでしょうか?" }, class:"btn btn-success btn-block mg-t-30"
 
 / メニューリンク
 = render partial: 'shared/menu-link'

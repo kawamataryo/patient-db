@@ -5,7 +5,7 @@ div class="row l-gutters-min-sm"
             div class="card-wrap"
                 = image_tag 'patient2.jpg', class:"card-img-top"
                 h4 class="card-title" Patient
-            div class="list-group list-group-flush"
+            div#card-patient class="list-group list-group-flush"
                 a class='list-group-item' href="#{new_patient_path}"
                     i class="fa fa-user-plus pd-r-10"
                     | 患者新規登録
@@ -20,7 +20,7 @@ div class="row l-gutters-min-sm"
             div class="card-wrap"
                 = image_tag 'history.jpg', class:"card-img-top"
                 h4 class="card-title" History
-            div class="list-group list-group-flush"
+            div#card-history class="list-group list-group-flush"
                 a class='list-group-item' href="#{new_history_path}"
                     i class="fa fa-file-text-o pd-r-10"
                     | 来院履歴入力
@@ -32,7 +32,7 @@ div class="row l-gutters-min-sm"
             div class="card-wrap"
                 = image_tag 'graph.jpg', class:"card-img-top"
                 h4 class="card-title" Graph & Tool
-            div class="list-group list-group-flush"
+            div#card-chart class="list-group list-group-flush"
                 a class='list-group-item' href="#{charts_show_path}"
                     i class="fa fa-bar-chart pd-r-10"
                     | 統計情報表示
