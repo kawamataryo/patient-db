@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'downloads/index'
+
     #グラフ
     get 'charts/show'
 
