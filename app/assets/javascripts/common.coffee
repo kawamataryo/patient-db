@@ -1,4 +1,4 @@
-$ ->
+ready = ->
     bgbox = $('#body-wrap')
     cardP = $('#card-patient')
     cardH = $('#card-history')
@@ -41,3 +41,5 @@ $ ->
         titile.css
             "color" : "#000"
 
+$(document).ready(ready)
+$(document).on('page:load', ready)
