@@ -27,16 +27,19 @@ div class="row"
                     tr
                     tr
                         th 名前
-                        td = @patient.name + '(' + @patient.kana + ')'
+                        td == @patient.kana.present? ? @patient.name + "<small>(" + @patient.kana + ")</small>" : @patient.name
+                    tr
+                        th 年齢
+                        td = age(@patient.birthdate)
                     tr
                         th 生年月日
-                        td = @patient.birthdate
+                        td = @patient.birthdate.strftime('%Y年%m月%d日')
                     tr
                         th 電話番号
-                        td = @patient.phone
+                        td = phone_number_format(@patient.phone)
                     tr
                         th 郵便番号
-                        td = @patient.post_code
+                        td = @patient.post_code != 0 ? @patient.post_code : '未入力'
                     tr
                         th 住所
                         td = @patient.address
@@ -57,7 +60,7 @@ div class="row"
                             td 履歴未入力
                     tr
                         th 来院回数
-                        td = @patient.history.count
+                        td = @patient.history.count.to_s + '回'
                     tr
                         th メモ
                         td = @patient.memo
