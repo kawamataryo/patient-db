@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     # downloads page
     get 'downloads/index'
 
+    # downloads sales
+    #get 'downloads/yearSales/:year' => 'downloads#yearSales'
+    get 'downloads/yearSales'
+
     #グラフ
     get 'charts/show'
 
