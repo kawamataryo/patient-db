@@ -1,5 +1,6 @@
 #------------------------------------------
 #home hover action
+#jqueryがturbolinksでoffにならない用に
 #------------------------------------------
 ready = ->
     bgbox = $('#body-wrap')
@@ -46,5 +47,3 @@ ready = ->
 
 # ページ切り替え時（初回ページも対象）
 $(document).on('turbolinks:load', ready)
-# ページ遷移前
-$(document).on('turbolinks:request-start', ready)
