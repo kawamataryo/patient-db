@@ -3,6 +3,7 @@ html lang="ja"
     head
         title
             | 患者情報DB
+        meta  name="viewport" content="width=device-width"
         = csrf_meta_tags
         = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
         = include_gon
@@ -61,7 +62,7 @@ html lang="ja"
             / 本分
             = yield
 
-        footer class="bg-faded mg-t-50"
+        footer class="mg-t-50"
             div class="container"
                 /copylight
                 p class="d-block text-center small copylight" @ makoto-acu.com
