@@ -1,0 +1,100 @@
+// -----------------------------------------------------
+// variable mixin
+// -----------------------------------------------------
+
+@mixin base-box-shadow() {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+// -----------------------------------------------------
+// global
+// -----------------------------------------------------
+// bacground
+
+#body-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    transition: all 0.4s ease-in;
+    //filter: blur(3px);
+    opacity: 0;
+    &.patients {
+        background-image:  image-url("patient-bg");
+    }
+    &.histories {
+        background-image:  image-url("history-bg");
+    }
+    &.charts, &.downloads {
+        background-image:  image-url("chart-bg");
+    }
+    &.patients, &.histories, &.charts, &.downloads {
+        opacity: 1;
+    }
+    &:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        opacity: 0.4;
+    }
+}
+
+//header
+header {
+    .logo-text-wrap {
+        display: inline-block;
+        position: relative;
+        width: 130px;
+        line-height: 1;
+        .logo-text-main {
+            font-family: 'Teko', sans-serif;
+            font-weight: bolder;
+            position: absolute;
+            font-size: 37px;
+            top: -32px;
+        }
+        .logo-text-sub {
+            position: absolute;
+            font-weight: thin;
+            font-size: 12px;
+            top: 2px;
+        }
+    }
+}
+
+//footer
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0px;
+    .copylight {
+        margin-bottom: 0;
+    }
+}
+
+//table
+.table {
+    background-color: #fff;
+    @include base-box-shadow()
+}
+
+//card
+.card {
+    @include base-box-shadow()
+}
+
+//navbar
+.navbar {
+    .patients &, .histories &, .charts & {
+        @include base-box-shadow()
+    }
+}
+

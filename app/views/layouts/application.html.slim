@@ -1,5 +1,5 @@
 doctype html
-html
+html lang="ja"
     head
         title
             | 患者情報DB
@@ -46,6 +46,8 @@ html
                                     = link_to "履歴一覧", histories_path, :class => 'nav-link'
                                 li class="nav-item"
                                     = link_to "統計情報", charts_show_path, :class => 'nav-link'
+                                li class="nav-item"
+                                    = link_to "売上csv", downloads_index_path, :class => 'nav-link'
                             ul class="navbar-nav ml-auto"
                                 li class="nav-item"
                                     = link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'
