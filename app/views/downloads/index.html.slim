@@ -1,11 +1,14 @@
 = form_tag(downloads_yearSales_path(format: :csv), method: 'get') do
-
-    div class="input-group"
-        span class="input-group-btn"
-            button class="btn btn-secondary" type="button"
-                i class="fa fa-download"
-                    |  年を選択
-        select name="year" class="form-control form-control-lg"
-            - Range.new(2014,Date.today.year).each do |y|
-                option value="#{y}" #{y}
-        = submit_tag "CSV出力", class: "btn btn-primary"
+    div.max-w-600
+        div class="card"
+            h3 class="card-header"
+                | CSV売上出力
+            div class="card-block"
+                div class="form-group"
+                    label ダウンロードする年を選択
+                    select name="year" class="form-control"
+                        - Range.new(2014,Date.today.year).each do |y|
+                            option value="#{y}" #{y}
+                button type="submit" class="btn btn-primary btn-block"
+                    i.fa.fa-download.mg-r-10
+                    | csv出力

@@ -28,10 +28,10 @@
     &.histories {
         background-image:  image-url("history-bg");
     }
-    &.charts {
+    &.charts, &.downloads {
         background-image:  image-url("chart-bg");
     }
-    &.patients, &.histories, &.charts {
+    &.patients, &.histories, &.charts, &.downloads {
         opacity: 1;
     }
     &:before {
@@ -308,6 +308,20 @@ $i:100;
         $s: $s - 5;
     }
 }
+//max-width
+$i:1300;
+@while $i >= 100 {
+    .max-w-#{$i} {
+        max-width: #{$i}px !important;
+        margin: auto;
+    }
+    .min-w-#{$i} {
+        min-width: #{$i}px !important;
+        margin: auto;
+    }
+    $i: $i - 100;
+}
+
 //サイズ変更
 .width-100 {
     width: 100%;
