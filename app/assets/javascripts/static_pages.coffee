@@ -1,8 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
-$ ->
+#------------------------------------------
+#home hover action
+#jqueryがturbolinksでoffにならない用に
+#------------------------------------------
+ready = ->
     bgbox = $('#body-wrap')
     cardP = $('#card-patient')
     cardH = $('#card-history')
@@ -45,3 +45,5 @@ $ ->
         titile.css
             "color" : "#000"
 
+# ページ切り替え時（初回ページも対象）
+$(document).on('turbolinks:load', ready)
