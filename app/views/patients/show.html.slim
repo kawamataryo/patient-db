@@ -33,7 +33,7 @@ div class="row"
                         td = age(@patient.birthdate)
                     tr
                         th 生年月日
-                        td = @patient.birthdate.strftime('%Y年%m月%d日')
+                        td = @patient.birthdate.strftime('%Y年%m月%d日') if @patient.birthdate
                     tr
                         th 電話番号
                         td = phone_number_format(@patient.phone)
