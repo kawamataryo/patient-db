@@ -42,7 +42,7 @@ class HistoriesController < ApplicationController
 
         # リダイレクト
         if success > 0
-            flash[:info] = "#{@history_date} の来院履歴 #{success} 件の追加完了しました。"
+            flash[:info] = "#{@history.history_date.strftime("%Y年%-m月%-d日")} の来院履歴 #{success} 件の追加完了しました。"
             redirect_to action: 'index'
         end
     end
