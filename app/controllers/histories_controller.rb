@@ -20,7 +20,7 @@ class HistoriesController < ApplicationController
         count = 0
         success = 0
         for id in patient_id do
-            # idが空行でなかったjkら保存へ
+            # idが空行でなかったら保存へ
             unless id == ''
                 @history = History.new
                 # データ挿入
