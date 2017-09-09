@@ -12,7 +12,7 @@ div#body-wrap-start
             | さらに見やすいチャートで経営状態を分析。年末の売上集計も効率化。
             br>/
             | 患者管理を効率化して、本業に専念できる環境を。
-        button.btn.btn-primary.btn-lg.mg-t-30 data-target="#loginForm" data-toggle="modal" type="button"
+        button#signin-btn.btn.btn-primary.btn-lg.mg-t-30 data-target="#loginForm" data-toggle="modal" type="button"
             i.fa.fa-lock.mg-r-10
             | 今すぐ始める
 
@@ -32,10 +32,10 @@ div#loginForm.modal.fade aria-hidden="true" aria-labelledby="modalLabel" role="d
                 = f.label :remember_me, 'パスワードを記録する'
             / divice アラート
             - if notice
-                div.alert.alert-success role="alert"
+                div#form-notice.alert.alert-notice role="alert"
                     = notice
             - if alert
-                div.alert.alert-danger role="alert"
+                div#form-alert.alert.alert-danger role="alert"
                     = alert
             / 送信ボタン
             div.actions
