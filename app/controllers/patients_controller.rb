@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
 
     # 患者情報追加
     def new
-        @patient_id_defo = Patient.count + 1
+        @patient_id_defo = Patient.maximum(:patient_id) + 1
         @patient = Patient.new
     end
 
