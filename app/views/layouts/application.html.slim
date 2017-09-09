@@ -12,57 +12,14 @@ html lang="ja"
         = stylesheet_link_tag "application", 'https://fonts.googleapis.com/css?family=Teko', :media => "all"
         / 郵便番号自動入力スクリプト
         script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"
-    body class="pd-t-90 pd-b-50"
+    body.pd-t-90.pd-b-50
+        / ヘッダー
+        = render :partial => 'shared/header'
+        / body 背景用div
         div#body-wrap class="#{controller.controller_path}"
-        / ヘッダーナビ
-        header class="mg-b-40"
-            nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top"
-                div class="container"
-                    // ハンバーガーメニュー
-                    button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation"
-                        span class="navbar-toggler-icon"
-                    / ロゴ
-                    a class='navbar-brand' href="#{root_path}"
-                        span class="fa-stack fa-lg"
-                            i class="fa fa-square-o fa-stack-2x"
-                            i class="fa fa-user fa-stack-1x"
-                        div.logo-text-wrap
-                            span.logo-text-main Patient DB
-                            span.logo-text-sub 患者情報データベース
-                    / メニューリスト
-                    div class="collapse navbar-collapse" id="nav-content"
-                        - if user_signed_in?
-                            ul class="navbar-nav mr-auto"
-                                li class="nav-item"
-                                    = link_to "ホーム", root_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "患者登録", new_patient_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "履歴入力", new_history_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "患者検索", search_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "患者一覧", patients_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "履歴一覧", histories_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "統計情報", charts_show_path, :class => 'nav-link'
-                                li class="nav-item"
-                                    = link_to "売上csv", downloads_index_path, :class => 'nav-link'
-                            ul class="navbar-nav ml-auto"
-                                li class="nav-item"
-                                    = link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'
-                        - else
-                            ul class="navbar-nav mr-auto"
-                            / li class="nav-item"
-                            /     = link_to "サインイン", new_user_registration_path, :class => 'nav-link'
-                            / li class="nav-item"
-                            /     = link_to "ログイン", new_user_session_path, :class => 'nav-link'
-        div class="container"
+        / メインコンテンツ
+        div.container
             / 本分
             = yield
-
-        footer class="mg-t-50"
-            div class="container"
-                /copylight
-                p class="d-block text-center small copylight" @ makoto-acu.com
+        / フッター
+        = render :partial => 'shared/footer'

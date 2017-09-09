@@ -1,0 +1,43 @@
+header.mg-b-40
+    nav.navbar.navbar-toggleable-md.navbar-light.bg-faded.fixed-top
+        div.container
+            // ハンバーガーメニュー
+            button.navbar-toggler.navbar-toggler-right type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation"
+                span.navbar-toggler-icon
+            / ロゴ
+            a class='navbar-brand' href="#{root_path}"
+                span.fa-stack.fa-lg
+                    i.fa.fa-square-o.fa-stack-2x
+                    i.fa.fa-user.fa-stack-1x
+                div.logo-text-wrap
+                    span.logo-text-main Patient DB
+                    span.logo-text-sub 患者情報データベース
+            / メニューリスト
+            div#nav-content.collapse.navbar-collapse
+                - if user_signed_in?
+                    ul.navbar-nav.mr-auto
+                        li.nav-item
+                            = link_to "ホーム", root_path, :class => 'nav-link'
+                        li.nav-item
+                            = link_to "患者登録", new_patient_path, :class => 'nav-link'
+                        li.nav-item
+                            = link_to "履歴入力", new_history_path, :class => 'nav-link'
+                        li.nav-item
+                            = link_to "患者検索", search_path, :class => 'nav-link'
+                        li.nav-item
+                            = link_to "患者一覧", patients_path, :class => 'nav-link'
+                        li.nav-item
+                            = link_to "履歴一覧", histories_path, :class => 'nav-link'
+                        li.nav-item
+                            = link_to "統計情報", charts_show_path, :class => 'nav-link'
+                        li.nav-item
+                            = link_to "売上csv", downloads_index_path, :class => 'nav-link'
+                    ul.navbar-nav.ml-auto
+                        li.nav-item
+                            = link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'nav-link'
+                - else
+                    ul.navbar-nav.mr-auto
+                    / li.nav-item
+                    /     = link_to "サインイン", new_user_registration_path, :class => 'nav-link'
+                    / li.nav-item
+                    /     = link_to "ログイン", new_user_session_path, :class => 'nav-link'
