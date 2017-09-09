@@ -21,7 +21,7 @@ div#body-wrap-start
 div#loginForm.modal.fade aria-hidden="true" aria-labelledby="modalLabel" role="dialog" tabindex="-1"
   div.modal-dialog role="document"
         = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-signin" }) do |f|
-            h2.form-signin-heading plese login
+            h2.form-signin-heading ログインフォーム
             = f.label :email, 'メールアドレス', class:'sr-only'
             = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'form-control'
             = f.label :password, 'パスワード', class:'sr-only'
@@ -32,7 +32,7 @@ div#loginForm.modal.fade aria-hidden="true" aria-labelledby="modalLabel" role="d
                 = f.label :remember_me, 'パスワードを記録する'
             / divice アラート
             - if notice
-                div#form-notice.alert.alert-notice role="alert"
+                div#form-notice.alert.alert-success role="alert"
                     = notice
             - if alert
                 div#form-alert.alert.alert-danger role="alert"
@@ -40,4 +40,5 @@ div#loginForm.modal.fade aria-hidden="true" aria-labelledby="modalLabel" role="d
             / 送信ボタン
             div.actions
                 = f.submit "ログイン", class:"btn btn-lg btn-primary btn-block"
-            button.btn.btn-secondary.btn-sm.btn-link data-dismiss="modal" type="button"  Close
+            div.text-right
+                button.btn.btn-secondary.btn-sm.btn-link data-dismiss="modal" type="button"  閉じる
