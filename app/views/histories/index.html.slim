@@ -1,14 +1,15 @@
 
 div class="row"
     div class="col-sm-8 offset-sm-2"
+        / 登録完了info
+        - if flash[:info]
+            div class="alert alert-success d-flex justify-content-between" role="alert"
+                = flash[:info]
+                a class="btn btn-outline-success btn-sm" href="#{new_history_path}" 続けて登録する
         div class="card"
             div class="card-header"
                 span  患者情報一覧
             div class="card-block"
-                / validate show
-                - if flash[:info]
-                    div class="alert alert-success" role="alert"
-                        = flash[:info]
                 / list all
                 table class="table table-striped"
                     thead
