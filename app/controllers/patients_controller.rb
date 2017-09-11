@@ -55,11 +55,9 @@ class PatientsController < ApplicationController
     def destroy
         #レコード削除
         Patient.find(params[:id]).destroy
-        #autoincrementの初期化
-        #Patient.reset_pk_sequence
-
+        # メッセージの格納
+        flash[:info] = "患者ID#{Patient.with_deleted.find(params[:id]).patient_id}  #{Patient.with_deleted.find(params[:id]).name}さんの削除が完了しました。"
         redirect_to patients_url
-
     end
 
     # フォーム受け取り要素の選別

@@ -1,34 +1,39 @@
-
-div class="card"
-    div class="card-header"
+/ 登録完了info
+- if flash[:info]
+    div.alert.alert-danger.d-flex.justify-content-between role="alert"
+        span #{flash[:info]}
+div.card
+    div.card-header
         span  患者情報一覧
-    div class="card-block"
-        table class="table table-striped"
+    div.card-block
+        table.table.table-striped.tb-responsive
             thead
                 tr
                     th ID
-                    th 名前(ふりがな)
+                    th 名前
                     th 性別
                     th 年齢
                     th 住所
                     th 電話番号
+                    th 来院回数
                     th 編集
             tbody
                 - @patients.each do |patient|
                     tr
-                        td = patient.patient_id
-                        td == patient.kana.present? ? patient.name + "<br><small>(" + patient.kana + ")</small>" : patient.name
-                        td = patient.sex
-                        td = age(patient.birthdate)
-                        td = patient.address
-                        td = phone_number_format(patient.phone)
-                        td
+                        td data-label="ID" = patient.patient_id
+                        td data-label="名前" == patient.kana.present? ? patient.name + " <br class='hidden-sm-down'><small>(" + patient.kana + ")</small>" : patient.name
+                        td data-label="性別" = patient.sex
+                        td data-label="年齢" = age(patient.birthdate)
+                        td data-label="住所" = patient.address
+                        td data-label="電話番号" = phone_number_format(patient.phone)
+                        td data-label="来院回数" = patient.history.count.to_s + '回'
+                        td.edit-btn
                             = link_to patient_path(patient.id), class:"btn btn-primary btn-sm mg-r-10" do
-                                i class="fa fa-info-circle"
+                                i.fa.fa-info-circle
                             = link_to edit_patient_url(patient), class:"btn btn-success btn-sm mg-r-10" do
-                                i class="fa fa-pencil"
+                                i.fa.fa-pencil
                             = link_to patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-sm" do
-                                i class="fa fa-trash"
+                                i.fa.fa-trash
         = paginate @patients
         / メニューリンク
         = render partial: 'shared/menu-link'
