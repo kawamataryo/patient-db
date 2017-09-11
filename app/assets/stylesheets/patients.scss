@@ -9,9 +9,45 @@
         }
     }
 }
-
 // -----------------------------------------------------
 // 一覧画面
+// -----------------------------------------------------
+.tb-responsive {
+    @include max-sm {
+        box-shadow: none;
+        thead {
+            th {
+                display: none;
+            }
+        }
+        tbody {
+            tr {
+                @include base-box-shadow();
+                margin-bottom: 30px;
+                display: block;
+                td {
+                    position: relative;
+                    display: block;
+                    padding-left: 90px;
+                    min-height: 52px;
+                    background-color: #fff;
+                    &:before {
+                        content: attr(data-label);
+                        position: absolute;
+                        left: 10px;
+                        font-weight: bold;
+                    }
+                    &.edit-btn {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------
+// 詳細画面
 // -----------------------------------------------------
 .patient-show-table {
     th {
