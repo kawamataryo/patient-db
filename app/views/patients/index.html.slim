@@ -34,7 +34,7 @@ div.card
                                 i.fa.fa-pencil
                             = link_to patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-sm" do
                                 i.fa.fa-trash
-        = paginate @patients
+        = paginate @patients, window: 2
         / メニューリンク
         = render partial: 'shared/menu-link'
 

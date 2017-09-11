@@ -56,14 +56,22 @@ header {
             font-family: 'Teko', sans-serif;
             font-weight: bolder;
             position: absolute;
-            font-size: 37px;
-            top: -32px;
+            font-size: 32px;
+            top: -31px;
         }
         .logo-text-sub {
             position: absolute;
             font-weight: thin;
             font-size: 12px;
-            top: 2px;
+            top: 0px;
+        }
+    }
+    @include max-md() {
+        .container {
+            width: 100%;
+        }
+        .navbar-toggler {
+            top: 12px;
         }
     }
 }
@@ -76,6 +84,7 @@ footer {
     padding: 5px 0px;
     background-color: lighten($gray-dark, 20%);
     color: #fff;
+    z-index: 3;
     .copylight {
         margin-bottom: 0;
     }
@@ -85,6 +94,13 @@ footer {
 .table {
     background-color: #fff;
     @include base-box-shadow()
+}
+
+//pager
+.pagination {
+    @include max-sm {
+        font-size: 0.8rem;
+    }
 }
 
 //card

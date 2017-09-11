@@ -32,7 +32,7 @@ div.row
                                     = link_to history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-sm btn-danger" do
                                         i.fa.fa-trash
                 / paging
-                = paginate @histories, theme: 'twitter-bootstrap-4'
+                = paginate @histories, window: 2
 
                 / メニューリンク
                 = render partial: 'shared/menu-link'
