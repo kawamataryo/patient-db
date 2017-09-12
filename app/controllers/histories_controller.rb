@@ -30,6 +30,7 @@ class HistoriesController < ApplicationController
                 @history.sales = sales["#{count}"].to_i
                 # 保存
                 if @history.save
+                    # 登録結果表示用
                     success += 1
                 else
                     # newへ戻る
