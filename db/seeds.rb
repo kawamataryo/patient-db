@@ -39,8 +39,6 @@ history_list.each do |data|
 end
 
 user_list.each do |data|
-    User.create(
-        email:data['id'],
-        encrypted_password:data['pass'],
-    )
+    user = User.new(:email => data['email'], :password => data['pass'])
+    user.save!
 end
