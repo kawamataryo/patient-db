@@ -49,6 +49,22 @@ div class="row patient-form"
             div class="col-9"
                 = f.text_field :address, class:"form-control"
     div class="col-sm-6"
+        / symptom
+        div class="form-group row"
+            = f.label :symptom, '症状', class:"col-3"
+            div class="col-9"
+                = f.select :symptom,[ \
+                    ["腰痛","腰痛"], \
+                    ["肩痛","肩痛"], \
+                    ["精神疾患","精神疾患"], \
+                    ["膝痛","膝痛"], \
+                    ["スポーツ疾患","スポーツ疾患"], \
+                    ["神経痛","神経痛"], \
+                    ["小児疾患","小児疾患"], \
+                    ["不妊症","不妊症"], \
+                    ["婦人科疾患","婦人科疾患"], \
+                ], {}, { class:"form-control" }
+
         / reason
         div class="form-group row"
             = f.label :reason, '来院理由', class:"col-3"
