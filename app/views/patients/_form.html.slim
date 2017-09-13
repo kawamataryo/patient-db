@@ -33,6 +33,11 @@ div class="row patient-form"
             = f.label :phone, '電話番号', class:"col-3"
             div class="col-9"
                 = f.text_field :phone, class:"form-control"
+        / email
+        div class="form-group row"
+            = f.label :email, 'メール', class:"col-3"
+            div class="col-9"
+                = f.text_field :email, class:"form-control"
         / postCode
         div class="form-group row"
             = f.label :post_code, '郵便番号', class:"col-3"
