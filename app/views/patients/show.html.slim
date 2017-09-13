@@ -25,7 +25,6 @@ div class="row"
                         th 患者ID
                         td = @patient.patient_id
                     tr
-                    tr
                         th 名前
                         td == @patient.kana.present? ? @patient.name + "<small>(" + @patient.kana + ")</small>" : @patient.name
                     tr
@@ -46,6 +45,9 @@ div class="row"
                     tr
                         th 住所
                         td = @patient.address
+                    tr
+                        th 症状
+                        td = @patient.symptom
                     tr
                         th 来院理由
                         td = @patient.reason
