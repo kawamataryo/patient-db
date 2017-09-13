@@ -9,10 +9,12 @@
 # ActiveSupport::JSONを使ってjsonをデコードしてrubyオブジェクトに変換
 name_list = ActiveSupport::JSON.decode(File.read('db/name_list.json'))
 history_list = ActiveSupport::JSON.decode(File.read('db/history_list.json'))
+user_list = ActiveSupport::JSON.decode(File.read('db/user_list.json'))
 
 # seedsの設定
 name_list.each do |data|
     Patient.create(
+        patient_id:data['id'],
         name:data['name1'],
         kana:data['name2'],
         sex:data['sex'],
@@ -27,12 +29,18 @@ name_list.each do |data|
     )
 end
 
-
 history_list.each do |data|
     History.create(
         history_date:data['history_date'],
         patient_id:data['id'],
         patient_name:data['name'],
         sales:data['sales'],
+    )
+end
+
+user_list.each do |data|
+    User.create(
+        email:data['id'],
+        encrypted_password:data['pass'],
     )
 end
