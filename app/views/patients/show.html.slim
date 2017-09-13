@@ -38,6 +38,9 @@ div class="row"
                         th 電話番号
                         td = phone_number_format(@patient.phone)
                     tr
+                        th メールアドレス
+                        td = @patient.email
+                    tr
                         th 郵便番号
                         td = @patient.post_code != 0 ? @patient.post_code : '未入力'
                     tr
