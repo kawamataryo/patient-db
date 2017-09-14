@@ -51,7 +51,7 @@ div id="app"
             div.card-header
                 span 検索結果
             div.card-block
-                table.table.table-striped
+                table.table.table-striped.tb-responsive
                     thead
                         tr
                             th ID
@@ -61,11 +61,11 @@ div id="app"
                             th
                     tbody
                         tr v-for="item in filterName"
-                            td ="{{item.patient_id}}"
-                            td ="{{item.name}}"
-                            td ="{{item.address}}"
-                            td ="{{item.phone}}"
-                            td
+                            td data-label="ID" ="{{item.patient_id}}"
+                            td data-label="名前" ="{{item.name}}"
+                            td data-label="住所"  ="{{item.address}}"
+                            td data-label="電話番号"  ="{{item.phone}}"
+                            td.edit-btn
                                 a.btn.btn-primary.btn-sm v-bind:href="baseUrl + item.id"
                                     i.fa.fa-info-circle
 
