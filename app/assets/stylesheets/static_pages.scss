@@ -53,7 +53,7 @@
             background-color: rgba($gray-lighter, 0.8);
         }
     }
-    @include max-sm {
+    @include max-md {
         .card-wrap {
             height: 80px;
         }
