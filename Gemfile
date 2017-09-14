@@ -92,3 +92,5 @@ gem "chartkick"
 gem 'groupdate'
 # 論理削除の追加
 gem 'paranoia'
+# autoprefixer追加
+gem 'autoprefixer-rails'
