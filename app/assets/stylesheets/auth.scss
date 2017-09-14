@@ -44,6 +44,16 @@
     }
     .start-inner-text {
         font-size: 1.1rem;
+        padding: 0px 15px;
+    }
+    @include max-sm {
+        .start-lead {
+            font-size: 2.0rem;
+        }
+        .start-inner-text {
+            font-size: 1.0rem;
+            text-align: left;
+        }
     }
 }
 
