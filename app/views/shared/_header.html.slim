@@ -2,8 +2,9 @@ header.mg-b-40
     nav.navbar.navbar-toggleable-md.navbar-light.bg-faded.fixed-top
         div.container
             // ハンバーガーメニュー
-            button.navbar-toggler.navbar-toggler-right type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation"
-                span.navbar-toggler-icon
+            - if user_signed_in?
+                button.navbar-toggler.navbar-toggler-right type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation"
+                    span.navbar-toggler-icon
             / ロゴ
             a class='navbar-brand' href="#{root_path}"
                 span.fa-stack.fa-lg
