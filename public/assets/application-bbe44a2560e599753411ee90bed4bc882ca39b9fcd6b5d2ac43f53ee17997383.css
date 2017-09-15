@@ -16931,29 +16931,30 @@ footer .copylight {
   text-align: center;
   color: #fff;
   z-index: 1;
+  width: 100%;
 }
-/* line 41, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 42, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .start-contents-wrap .start-lead {
   font-size: 3.3rem;
 }
-/* line 44, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 45, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .start-contents-wrap .start-inner-text {
   font-size: 1.1rem;
   padding: 0px 15px;
 }
 @media (max-width: 576px) {
-  /* line 49, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+  /* line 50, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
   .start-contents-wrap .start-lead {
     font-size: 2.0rem;
   }
-  /* line 52, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+  /* line 53, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
   .start-contents-wrap .start-inner-text {
     font-size: 1.0rem;
     text-align: left;
   }
 }
 
-/* line 62, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 63, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 #loginForm .modal-dialog {
   position: absolute;
   top: 50%;
@@ -16964,60 +16965,60 @@ footer .copylight {
   margin: 0px;
 }
 @media (max-width: 576px) {
-  /* line 62, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+  /* line 63, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
   #loginForm .modal-dialog {
     min-width: 300px;
   }
 }
 
-/* line 78, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 79, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .form-signin {
   padding: 15px 35px 45px;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* line 84, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 85, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .form-signin .form-signin-heading, .form-signin .checkbox {
   margin-bottom: 30px;
 }
-/* line 87, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 88, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .form-signin .checkbox {
   font-weight: normal;
 }
-/* line 90, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 91, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .form-signin .form-control {
   position: relative;
   font-size: 16px;
   height: auto;
   padding: 10px;
 }
-/* line 95, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 96, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .form-signin .form-control:focus {
   z-index: 2;
 }
-/* line 99, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 100, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .form-signin input[type="text"] {
   margin-bottom: -1px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 104, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+/* line 105, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 .form-signin input[type="password"] {
   margin-bottom: 20px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 @media (max-width: 576px) {
-  /* line 78, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+  /* line 79, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
   .form-signin {
     padding: 15px 20px 30px;
   }
-  /* line 111, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+  /* line 112, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
   .form-signin .form-signin-heading, .form-signin .checkbox {
     margin-bottom: 10px;
   }
-  /* line 114, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
+  /* line 115, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
   .form-signin h2 {
     font-size: 20px;
   }
@@ -17039,23 +17040,38 @@ footer .copylight {
 }
 
 @media (max-width: 576px) {
-  /* line 16, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 18, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  .input-group-btn button {
+    font-size: 0.8rem;
+  }
+}
+
+/* line 27, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+.tb-responsive .column-address {
+  width: 30%;
+}
+@media (max-width: 576px) {
+  /* line 26, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  /* line 20, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 31, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  .tb-responsive .column-address {
+    width: 100%;
+  }
+  /* line 36, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive thead th {
     display: none;
   }
-  /* line 25, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 41, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr {
     -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     display: block;
   }
-  /* line 29, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 45, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td {
     position: relative;
     display: block;
@@ -17063,20 +17079,20 @@ footer .copylight {
     min-height: 52px;
     background-color: #fff;
   }
-  /* line 35, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 51, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td:before {
     content: attr(data-label);
     position: absolute;
     left: 10px;
     font-weight: bold;
   }
-  /* line 41, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 57, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td.edit-btn {
     text-align: right;
   }
 }
 
-/* line 54, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+/* line 70, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
 .patient-show-table th {
   width: 30%;
   text-align: right;
