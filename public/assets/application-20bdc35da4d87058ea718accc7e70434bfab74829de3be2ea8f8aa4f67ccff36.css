@@ -16789,15 +16789,15 @@ html[lang=ja] {
 }
 /* line 24, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/common.scss */
 #body-wrap.patients {
-  background-image: url(/assets/patient-bg-1330e0161253cfa0472103d03e8300d7a3a0db7d9dc45630bb3a9bfa2e03da62.jpg);
+  background-image: url(/assets/patient-bg-8a917b2a1347f9caf9864b2e5d13c70fec10410d61b5299a8cc7c484820d32e1.jpg);
 }
 /* line 27, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/common.scss */
 #body-wrap.histories {
-  background-image: url(/assets/history-bg-d9208fc984a940c8e017505524200690a256304840e619739b231e203d6e6b9d.jpg);
+  background-image: url(/assets/history-bg-19f5da8577701f24a293311d0e6248b409dd82d025e3b0305d8dd42dcc9ab263.jpg);
 }
 /* line 30, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/common.scss */
 #body-wrap.charts, #body-wrap.downloads {
-  background-image: url(/assets/chart-bg-dae01b10f6b48c14ec3e25e42ae008a0be9fb2e8ea407d3f6ccf72f26d7bd613.jpg);
+  background-image: url(/assets/chart-bg-8035115214dda6e4f053498e43d9825923b58ad85dfded4daaf714598940f146.jpg);
 }
 /* line 33, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/common.scss */
 #body-wrap.patients, #body-wrap.histories, #body-wrap.charts, #body-wrap.downloads {
@@ -16907,7 +16907,7 @@ footer .copylight {
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
   opacity: 1;
-  background-image: url(/assets/start-bg-2-d8dc282f5c0618d5b288c0e350e8d54c8dabbb3f03ce8118df34f03095d974e4.jpg);
+  background-image: url(/assets/start-bg-2-6c871b0b445d2829b9742c2837fb15374b6227cb8043aed057eaf711a921f8d7.jpg);
 }
 /* line 18, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 #body-wrap-start:before {
@@ -17046,24 +17046,32 @@ footer .copylight {
   }
 }
 
+/* line 27, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+.tb-responsive .column-address {
+  width: 30%;
+}
 @media (max-width: 576px) {
   /* line 26, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  /* line 30, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 31, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  .tb-responsive .column-address {
+    width: 100%;
+  }
+  /* line 36, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive thead th {
     display: none;
   }
-  /* line 35, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 41, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr {
     -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     display: block;
   }
-  /* line 39, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 45, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td {
     position: relative;
     display: block;
@@ -17071,20 +17079,20 @@ footer .copylight {
     min-height: 52px;
     background-color: #fff;
   }
-  /* line 45, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 51, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td:before {
     content: attr(data-label);
     position: absolute;
     left: 10px;
     font-weight: bold;
   }
-  /* line 51, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 57, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td.edit-btn {
     text-align: right;
   }
 }
 
-/* line 64, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+/* line 70, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
 .patient-show-table th {
   width: 30%;
   text-align: right;
