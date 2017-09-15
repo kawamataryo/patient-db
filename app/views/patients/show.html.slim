@@ -1,14 +1,14 @@
 
-div class="row"
-    div class="col-sm-8 offset-sm-2"
+div.row
+    div.col-sm-8.offset-sm-2
         / 登録完了info
         - if flash[:info]
-            div class="alert alert-success d-flex justify-content-between" role="alert"
+            div.alert.alert-success.d-flex.justify-content-between role="alert"
                 span #{flash[:info]}
-                a class="btn btn-outline-success btn-sm" href="#{new_patient_path}" 続けて登録する
+                a.btn.btn-outline-success.btn-sm href="#{new_patient_path}" 続けて登録する
         / 詳細情報
-        div class="card"
-            div class="card-header"
+        div.card
+            div.card-header
                 div.row
                     div.col-6
                         span  詳細情報
@@ -18,9 +18,9 @@ div class="row"
                                 i.fa.fa-pencil
                             = link_to @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-sm" do
                                 i.fa.fa-trash
-            div class="card-block"
+            div.card-block
                 / 患者個別情報
-                table class="table patient-show-table"
+                table.table.patient-show-table
                     tr
                         th 患者ID
                         td = @patient.patient_id
