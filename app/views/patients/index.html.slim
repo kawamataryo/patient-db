@@ -13,7 +13,7 @@ div.card
                     th 名前
                     th 性別
                     th 年齢
-                    th 住所
+                    th.column-address 住所
                     th 電話番号
                     th 来院回数
                     th 編集
@@ -24,7 +24,7 @@ div.card
                         td data-label="名前" == patient.kana.present? ? patient.name + " <br class='hidden-sm-down'><small>(" + patient.kana + ")</small>" : patient.name
                         td data-label="性別" = patient.sex
                         td data-label="年齢" = age(patient.birthdate)
-                        td data-label="住所" = patient.address
+                        td.column-address data-label="住所" = patient.address
                         td data-label="電話番号" = phone_number_format(patient.phone)
                         td data-label="来院回数" = patient.history.count.to_s + '回'
                         td.edit-btn

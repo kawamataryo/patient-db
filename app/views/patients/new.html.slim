@@ -1,16 +1,18 @@
-div class="card"
-    div class="card-header"
-        | 患者情報登録
-    div class="card-block"
-        = form_for :patient, url: patients_path do |f|
-            / form 読み込み
-            = render partial: 'patients/form', locals: { f: f, id_defo: :patient_id_defo }
+div.row
+    div.col-sm-8.offset-sm-2
+        div.card
+            div.card-header
+                | 患者情報登録
+            div.card-block
+                = form_for :patient, url: patients_path do |f|
+                    / form 読み込み
+                    = render partial: 'patients/form', locals: { f: f, id_defo: :patient_id_defo }
 
-            / errorメッセージ
-            - render 'shared/error_messages'
+                    / errorメッセージ
+                    - render 'shared/error_messages'
 
-            / 送信ボタン
-            = f.submit "登録",class:"btn btn-primary btn-block mg-t-30"
+                    / 送信ボタン
+                    = f.submit "登録",class:"btn btn-primary btn-block mg-t-30"
 
-        / メニューリンク
-        = render partial: 'shared/menu-link'
+                / メニューリンク
+                = render partial: 'shared/menu-link'

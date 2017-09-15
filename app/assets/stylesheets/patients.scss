@@ -24,7 +24,13 @@
 // 一覧画面
 // -----------------------------------------------------
 .tb-responsive {
+    .column-address {
+        width: 30%;
+    }
     @include max-sm {
+        .column-address {
+            width: 100%;
+        }
         box-shadow: none;
         thead {
             th {
