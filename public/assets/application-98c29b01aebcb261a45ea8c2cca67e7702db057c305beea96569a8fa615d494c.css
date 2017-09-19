@@ -16907,7 +16907,7 @@ footer .copylight {
   -webkit-transition: all 0.4s ease-in;
   transition: all 0.4s ease-in;
   opacity: 1;
-  background-image: url(/assets/start-bg-2-4904d89ab7f3e4136c342f92896ff7d083b0887b9035cd8a0f413f66041e4b3c.jpg);
+  background-image: url(/assets/start-bg-2-6c871b0b445d2829b9742c2837fb15374b6227cb8043aed057eaf711a921f8d7.jpg);
 }
 /* line 18, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/auth.scss */
 #body-wrap-start:before {
@@ -17038,40 +17038,48 @@ footer .copylight {
   text-align: right;
   font-weight: bold;
 }
+@media (max-width: 576px) {
+  /* line 7, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  .patient-form .form-group > label {
+    text-align: left;
+    font-size: 0.9rem;
+    margin-bottom: 5;
+  }
+}
 
 @media (max-width: 576px) {
-  /* line 18, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 23, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .input-group-btn button {
     font-size: 0.8rem;
   }
 }
 
-/* line 27, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+/* line 32, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
 .tb-responsive .column-address {
   width: 30%;
 }
 @media (max-width: 576px) {
-  /* line 26, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 31, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive {
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  /* line 31, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 36, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive .column-address {
     width: 100%;
   }
-  /* line 36, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 41, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive thead th {
     display: none;
   }
-  /* line 41, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 46, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr {
     -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     display: block;
   }
-  /* line 45, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 50, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td {
     position: relative;
     display: block;
@@ -17079,20 +17087,20 @@ footer .copylight {
     min-height: 52px;
     background-color: #fff;
   }
-  /* line 51, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 56, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td:before {
     content: attr(data-label);
     position: absolute;
     left: 10px;
     font-weight: bold;
   }
-  /* line 57, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+  /* line 62, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
   .tb-responsive tbody tr td.edit-btn {
     text-align: right;
   }
 }
 
-/* line 70, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
+/* line 75, /Users/kawamataryou/rails_training/pv3/app/assets/stylesheets/patients.scss */
 .patient-show-table th {
   width: 30%;
   text-align: right;
