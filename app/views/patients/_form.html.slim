@@ -46,7 +46,7 @@ div.patient-form
         div.form-group.row
             = f.label :address, '住所', class:"col-2"
             div.col-10
-                = f.text_field :address, class:"form-control"
+                = f.text_field :address, class:"form-control", id:"patient_address"
         / symptom
         div.form-group.row
             = f.label :symptom, '症状', class:"col-2"
