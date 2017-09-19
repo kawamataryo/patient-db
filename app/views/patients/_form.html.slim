@@ -1,56 +1,56 @@
 div.patient-form
         / ID
         div.form-group.row
-            = f.label :patient_id, '患者ID', class:"col-2"
-            div.col-10
+            = f.label :patient_id, '患者ID', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.number_field :patient_id, class:"form-control", required:"", value:@patient_id_defo
         / 名前
         div.form-group.row
-            = f.label :name, '名前', class:"col-2"
-            div.col-10
+            = f.label :name, '名前', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.text_field :name, class:"form-control", required:""
         / かな
         div.form-group.row
-            = f.label :kana, 'フリガナ', class:"col-2"
-            div.col-10
+            = f.label :kana, 'フリガナ', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.text_field :kana, class:"form-control"
         / 性別
         div.form-group.row
-            = f.label :sex, '性別', class:"col-2"
-            div.col-10
+            = f.label :sex, '性別', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 div.form-check.form-check-inline
                     label.form-check-label #{f.radio_button :sex, "男性", class:"form-check-input", checked: true} 男性
                 div.form-check.form-check-inline
                     label.form-check-label #{f.radio_button :sex, "女性", class:"form-check-input"} 女性
         / birthdate
         div.form-group.row
-            = f.label :birthdate, '生年月日', class:"col-2"
-            div.col-10
+            = f.label :birthdate, '生年月日', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.date_field :birthdate, class:"form-control"
         / phone
         div.form-group.row
-            = f.label :phone, '電話番号', class:"col-2"
-            div.col-10
+            = f.label :phone, '電話番号', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.text_field :phone, class:"form-control"
         / email
         div.form-group.row
-            = f.label :email, 'メール', class:"col-2"
-            div.col-10
+            = f.label :email, 'メール', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.email_field :email, class:"form-control"
         / postCode
         div.form-group.row
-            = f.label :post_code, '郵便番号', class:"col-2"
-            div.col-10
+            = f.label :post_code, '郵便番号', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.text_field :post_code, class:"form-control", id:"address_zipcode"
         / address
         div.form-group.row
-            = f.label :address, '住所', class:"col-2"
-            div.col-10
+            = f.label :address, '住所', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.text_field :address, class:"form-control", id:"patient_address"
         / symptom
         div.form-group.row
-            = f.label :symptom, '症状', class:"col-2"
-            div.col-10
+            = f.label :symptom, '症状', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.select :symptom,[ \
                     ["腰痛","腰痛"], \
                     ["肩痛","肩痛"], \
@@ -65,8 +65,8 @@ div.patient-form
 
         / reason
         div.form-group.row
-            = f.label :reason, '来院理由', class:"col-2"
-            div.col-10
+            = f.label :reason, '来院理由', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 div.form-check.form-check-inline
                     label.form-check-label #{f.radio_button :reason, "ホームページ", class:"form-check-input", checked: true} ホームページ
                 div.form-check.form-check-inline
@@ -77,20 +77,20 @@ div.patient-form
                     label.form-check-label #{f.radio_button :reason, "知人", class:"form-check-input"} 知人
         / experience
         div.form-group.row
-            = f.label :experience, '鍼灸経験', class:"col-2"
-            div.col-10
+            = f.label :experience, '鍼灸経験', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 div.form-check.form-check-inline
                     label.form-check-label #{f.radio_button :experience, "あり", class:"form-check-input", checked: true} あり
                 div.form-check.form-check-inline
                     label.form-check-label #{f.radio_button :experience, "なし", class:"form-check-input"} なし
         / firstDay
         div.form-group.row
-            = f.label :firstday, '初診日', class:"col-2"
-            div.col-10
+            = f.label :firstday, '初診日', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.date_field :firstday, class:"form-control", required:""
         / memo
         div.form-group.row
-            = f.label :memo, 'メモ', class:"col-2"
-            div.col-10
+            = f.label :memo, 'メモ', class:"col-sm-2 col-12"
+            div.col-sm-10.col-12
                 = f.text_area :memo, class:"form-control", rows: 8
 
