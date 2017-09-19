@@ -19816,28 +19816,34 @@ e[b]||null})}var u={};q(g,this.options,u,0);return u}})(K);return K});
 (function() {
   window.image_path = function(name) {
     return {
-      "chart-bg.jpg": "/assets/chart-bg-dae01b10f6b48c14ec3e25e42ae008a0be9fb2e8ea407d3f6ccf72f26d7bd613.jpg",
-      "graph.jpg": "/assets/graph-d3ed61853da6df9081188048ca8ed9aae0a118e3f16d908e2c4bd5c79e60f69b.jpg",
-      "history-bg.jpg": "/assets/history-bg-d9208fc984a940c8e017505524200690a256304840e619739b231e203d6e6b9d.jpg",
-      "history.jpg": "/assets/history-a9b5114f3879a3eb17598e5b7d4d39608c316f020bd8da26551b6e785f87c197.jpg",
-      "patient-bg.jpg": "/assets/patient-bg-1330e0161253cfa0472103d03e8300d7a3a0db7d9dc45630bb3a9bfa2e03da62.jpg",
-      "patient2.jpg": "/assets/patient2-b3e4bed663fe45d3709f714fb6ad92baa04bea147d721f68d7053a103ffc525e.jpg",
-      "start-bg-1.jpg": "/assets/start-bg-1-b46e7ff8df518ba8149e10a786e98e0f44dffe186e56b4b906d11ab31a356c62.jpg",
-      "start-bg-2.jpg": "/assets/start-bg-2-d8dc282f5c0618d5b288c0e350e8d54c8dabbb3f03ce8118df34f03095d974e4.jpg",
-      "start-bg-3.jpg": "/assets/start-bg-3-0b4930998eb4f5c94a2c8a246c666c9187650c4aae42d156389df9fe706cd425.jpg"
+      "chart-bg.jpg": "/assets/chart-bg-8035115214dda6e4f053498e43d9825923b58ad85dfded4daaf714598940f146.jpg",
+      "graph.jpg": "/assets/graph-b99d9821a8823e048739e22a13f85b82f4e034035dae28373b479fd26b6a98bf.jpg",
+      "history-bg.jpg": "/assets/history-bg-19f5da8577701f24a293311d0e6248b409dd82d025e3b0305d8dd42dcc9ab263.jpg",
+      "history.jpg": "/assets/history-ad3bdbe4b05b29cae45213798d15b29b02c942ac96b218416955f9290eff646f.jpg",
+      "patient-bg.jpg": "/assets/patient-bg-8a917b2a1347f9caf9864b2e5d13c70fec10410d61b5299a8cc7c484820d32e1.jpg",
+      "patient.jpg": "/assets/patient-a42837c22467ab903a05292eb179fd2ef184a799c283b6c688e79c6474a4f49d.jpg",
+      "start-bg-1.jpg": "/assets/start-bg-1-3d16017bb553d88aefbdcbd7c27cc525321d7e8ea551fd8a8c50f373970ad7b2.jpg",
+      "start-bg-2.jpg": "/assets/start-bg-2-6c871b0b445d2829b9742c2837fb15374b6227cb8043aed057eaf711a921f8d7.jpg",
+      "start-bg-3.jpg": "/assets/start-bg-3-01d5e49c975a9a9f96d6fcfbfe35bf46f35b780bc2a5860bbaa5cab28394dbca.jpg"
     }[name];
   };
 
 }).call(this);
 (function() {
-  $(function() {
-    return $("#address_zipcode").jpostal({
-      postcode: ["#address_zipcode"],
-      address: {
-        "#patient_address": "%3%4%5"
-      }
+  var ready;
+
+  ready = function() {
+    return $(function() {
+      return $("#address_zipcode").jpostal({
+        postcode: ["#address_zipcode"],
+        address: {
+          "#patient_address": "%3%4%5"
+        }
+      });
     });
-  });
+  };
+
+  $(document).on('turbolinks:load', ready);
 
 }).call(this);
 (function() {
