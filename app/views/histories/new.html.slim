@@ -1,60 +1,62 @@
-div id="app" class="container"
+div#app.container
     = form_tag('/histories') do
-        div class="row"
+        div.row
             /検索フォーム
-            div class="col-sm-4"
-                div class="card"
-                    div class="card-header"
-                        div class="input-group"
-                            span class="input-group-btn"
-                                button class="btn btn-secondary" type="button" 名前検索
-                            input class="form-control" v-model='filterKey'
-                    div class="card-block"
-                        table class="table" v-if="filterKey != ''"
-                            tr v-for="item in filterItem" v-on:click='insertId(item.id)' class="search_patient-list"
+            div.col-sm-4.sm-mg-b-30
+                div.card
+                    div.card-header
+                        div.input-group
+                            span.input-group-btn
+                                button.btn.btn-secondary type="button" 名前検索
+                            input.form-control v-model='filterKey'
+                    div.card-block
+                        table.table v-if="filterKey != ''"
+                            tr.search_patient-list v-for="item in filterItem" v-on:click='insertId(item.id)'
                                 td ="{{item.name}}"
             /患者履歴入力フォーム
-            div class="col-sm-8"
-                div class="card"
-                    div class="card-header"
+            div.col-sm-8
+                div.card
+                    div.card-header
                         / 診療日
-                        div class="row"
-                            span for="history_date" class="col-4 m-auto" 来院履歴登録
-                            label for="history_date" class="col-4 text-right m-auto" 診療日
-                            div class="col-4"
-                                input type="date" name="history_date" class="form-control" required=""
-                    div class="card-block"
+                        div.row
+                            span.col-12.m-auto.col-sm-4 for="history_date" 来院履歴登録
+                            label.col-3.sm-pd-0.col-sm-4.text-right.m-auto for="history_date" 診療日
+                            div.col-9.col-sm-4
+                                input.form-control type="date" name="history_date" required=""
+                    div.card-block
                         / 売り上げ履歴
-                        table class="table table-sm"
-                            tr
-                                th ID
-                                th 名前
-                                th 売上高
+                        table.table.table-sm.tb-responsive
+                            thead
+                                tr
+                                    th ID
+                                    th 名前
+                                    th 売上高
+                            tbody
                             - (0..8).each do |i|
                                 tr
-                                    td class="width-30"
+                                    td.width-30 data-label="ID"
                                         /id入力
-                                        input type="number" name="patient_id[]" v-model="id[#{i}]" class="form-control" onchange="checkId(this)"
-                                    td class="width-30"
+                                        input.form-control type="number" name="patient_id[]" v-model="id[#{i}]" onchange="checkId(this)"
+                                    td.width-30 data-label="名前"
                                         /名前表示
-                                        input type="text" name="patient_name[]" v-model="searchName(id[#{i}])" class="form-control" readonly=""
-                                    td class="width-40"
+                                        input.form-control type="text" name="patient_name[]" v-model="searchName(id[#{i}])" readonly=""
+                                    td.width-40 data-label="金額"
                                         /金額選択
-                                        div class="form-check form-check-inline"
-                                            label  class="form-check-label"
-                                                input type="radio" value="4000" name="sales[#{i}]" class="form-check-input" checked=""  4000
-                                        div class="form-check form-check-inline"
-                                            label  class="form-check-label"
-                                                input type="radio" value="3000" name="sales[#{i}]" class="form-check-input"  3000
-                                        div class="form-check form-check-inline"
-                                            label  class="form-check-label"
-                                                input type="radio" value="2500" name="sales[#{i}]" class="form-check-input"  2500
+                                        div.form-check.form-check-inline
+                                            label.form-check-label
+                                                input.form-check-input type="radio" value="4000" name="sales[#{i}]" checked=""  4000
+                                        div.form-check.form-check-inline
+                                            label.form-check-label
+                                                input.form-check-input type="radio" value="3000" name="sales[#{i}]"  3000
+                                        div.form-check.form-check-inline
+                                            label.form-check-label
+                                                input.form-check-input type="radio" value="2500" name="sales[#{i}]"  2500
                         /送信btn
                         = submit_tag "登録", class:"btn btn-primary btn-block"
+                        / メニューリンク
+                        = render partial: 'shared/menu-link'
 
 
-/ メニューリンク
-= render partial: 'shared/menu-link'
 
 
 javascript:
