@@ -94,3 +94,5 @@ gem 'groupdate'
 gem 'paranoia'
 # autoprefixer追加
 gem 'autoprefixer-rails'
+#検索機能追加
+gem 'ransack'

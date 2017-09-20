@@ -4,7 +4,8 @@ class PatientsController < ApplicationController
 
     # 患者名簿一覧
     def index
-        @patients = Patient.page(params[:page])
+        @q = Patient.ransack(params[:q])
+        @patients = @q.result().page(params[:page])
     end
 
     # 患者名簿検索
