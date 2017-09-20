@@ -264,7 +264,7 @@ $s:100;
 
 $i:1200;
 @while $i >= 0 {
-    .w-#{$i} {
+    .max-w-#{$i} {
         max-width: #{$i}px;
         margin: auto;
     }
@@ -277,6 +277,7 @@ $i:1200;
         text-align: center;
     }
 }
+
 
 //gutter設定
 .no-gutters {
