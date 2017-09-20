@@ -2,17 +2,29 @@
 - if flash[:info]
     div.alert.alert-danger.d-flex.justify-content-between role="alert"
         span #{flash[:info]}
+
+
+/ 一覧テーブル
 div.card
     div.card-header
-        span  患者情報一覧
+        div.row
+            div.col-sm-6
+                h4  患者情報一覧
+            div.col-sm-6
+                / 検索フォーム
+                = search_form_for @q, html: { class: "form-inline"} do |f|
+                    div.form-group.mg-r-10
+                        = f.label :name_cont, "名前検索", class: "form-control-label mg-r-10"
+                        = f.search_field :name_cont, class: "form-control"
+                    = f.submit "検索する", class: "btn btn-secondary"
     div.card-block
         table.table.table-striped.tb-responsive
             thead
                 tr
-                    th ID
+                    th = sort_link(@q, :id, 'ID')
                     th 名前
                     th 性別
-                    th 年齢
+                    th = sort_link(@q, :birthdate, '年齢')
                     th.column-address 住所
                     th 電話番号
                     th 来院回数
