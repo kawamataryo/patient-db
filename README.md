@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 内容
+鍼灸院や治療院向けの患者情報の管理アプリ。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 機能
+- 患者情報の登録編集削除検索
+- 来院履歴の登録編集削除
+- 売上データ、患者属性のグラフ化
+- 経理ソフト用に売上情報のcsvエクスポート
