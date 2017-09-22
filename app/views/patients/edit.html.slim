@@ -1,12 +1,13 @@
-div class="card"
-    div class="card-header"
-        | 患者情報編集
-    div class="card-block"
-        = form_for(@patient) do |f|
-            / form 読み込み
-            = render partial: 'patients/form', locals: { f: f }
-            / 送信ボタン
-            = f.submit "編集完了",data: { confirm: "この内容で編集してよろしいでしょうか?" }, class:"btn btn-success btn-block mg-t-30"
-
-/ メニューリンク
-= render partial: 'shared/menu-link'
+div.row
+    div.col-sm-8.offset-sm-2
+        div class="card"
+            div class="card-header"
+                | 患者情報編集
+            div class="card-block"
+                = form_for(@patient) do |f|
+                    / form 読み込み
+                    = render partial: 'patients/form', locals: { f: f }
+                    / 送信ボタン
+                    = f.submit "編集完了",data: { confirm: "この内容で編集してよろしいでしょうか?" }, class:"btn btn-success btn-block mg-t-30"
+            / メニューリンク
+            = render partial: 'shared/menu-link'
