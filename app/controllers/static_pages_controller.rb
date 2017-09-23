@@ -5,6 +5,5 @@ class StaticPagesController < ApplicationController
 
     # トップメニュー
     def home
-
     end
 end
