@@ -19817,27 +19817,34 @@ e[b]||null})}var u={};q(g,this.options,u,0);return u}})(K);return K});
   window.image_path = function(name) {
     return {
       "chart-bg.jpg": "/assets/chart-bg-8035115214dda6e4f053498e43d9825923b58ad85dfded4daaf714598940f146.jpg",
+      "favicon.ico": "/assets/favicon-ec34bd5c3692b8470a64c8e91dffc67cafe52972b45d952bc149ff018892c6c9.ico",
       "graph.jpg": "/assets/graph-b99d9821a8823e048739e22a13f85b82f4e034035dae28373b479fd26b6a98bf.jpg",
       "history-bg.jpg": "/assets/history-bg-19f5da8577701f24a293311d0e6248b409dd82d025e3b0305d8dd42dcc9ab263.jpg",
       "history.jpg": "/assets/history-ad3bdbe4b05b29cae45213798d15b29b02c942ac96b218416955f9290eff646f.jpg",
       "patient-bg.jpg": "/assets/patient-bg-8a917b2a1347f9caf9864b2e5d13c70fec10410d61b5299a8cc7c484820d32e1.jpg",
       "patient.jpg": "/assets/patient-a42837c22467ab903a05292eb179fd2ef184a799c283b6c688e79c6474a4f49d.jpg",
       "start-bg-1.jpg": "/assets/start-bg-1-3d16017bb553d88aefbdcbd7c27cc525321d7e8ea551fd8a8c50f373970ad7b2.jpg",
-      "start-bg-2.jpg": "/assets/start-bg-2-4904d89ab7f3e4136c342f92896ff7d083b0887b9035cd8a0f413f66041e4b3c.jpg",
+      "start-bg-2.jpg": "/assets/start-bg-2-6c871b0b445d2829b9742c2837fb15374b6227cb8043aed057eaf711a921f8d7.jpg",
       "start-bg-3.jpg": "/assets/start-bg-3-01d5e49c975a9a9f96d6fcfbfe35bf46f35b780bc2a5860bbaa5cab28394dbca.jpg"
     }[name];
   };
 
 }).call(this);
 (function() {
-  $(function() {
-    return $("#address_zipcode").jpostal({
-      postcode: ["#address_zipcode"],
-      address: {
-        "#patient_address": "%3%4%5"
-      }
+  var ready;
+
+  ready = function() {
+    return $(function() {
+      return $("#address_zipcode").jpostal({
+        postcode: ["#address_zipcode"],
+        address: {
+          "#patient_address": "%3%4%5"
+        }
+      });
     });
-  });
+  };
+
+  $(document).on('turbolinks:load', ready);
 
 }).call(this);
 (function() {

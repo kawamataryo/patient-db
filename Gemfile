@@ -57,6 +57,8 @@ group :development do
     gem 'spring-watcher-listen', '~> 2.0.0'
     # errorをみやすく
     gem 'better_errors', '~> 2.1', '>= 2.1.1'
+    #railsのcodeing規約確認
+    gem 'rubocop', require: false
 end
 
 group :production do
