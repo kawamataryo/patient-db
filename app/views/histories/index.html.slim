@@ -6,6 +6,11 @@ div.row
             div.alert.alert-success.d-flex.justify-content-between role="alert"
                 = flash[:info]
                 a.btn.btn-outline-success.btn-sm href="#{new_history_path}" 続けて登録する
+        / 登録削除info
+        - if flash[:deleat_ok]
+            div.alert.alert-danger.d-flex.justify-content-between role="alert"
+                span #{flash[:deleat_ok]}
+
         div.card
             div.card-header
                 span  患者情報一覧

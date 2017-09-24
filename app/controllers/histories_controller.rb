@@ -50,11 +50,13 @@ class HistoriesController < ApplicationController
 
     # 履歴の削除
     def destroy
+        # メッセージの格納
+        flash[:deleat_ok] = "#{History.find(params[:id]).history_date}  #{History.find(params[:id]).patient_name}さんの来院履歴を削除しました。"
+
         # レコード削除
         History.find(params[:id]).destroy
-        # autoincrementの初期化
-        History.reset_pk_sequence
 
+        # 一覧へのリダイレクト
         redirect_to histories_url
     end
 
