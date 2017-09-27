@@ -62,8 +62,11 @@ class HistoriesController < ApplicationController
 
     # 履歴一覧
     def index
-        # 日付順で並び替えて出力
-        @histories = History.order("history_date desc").page(params[:page])
+        # ransack
+        @q = History.ransack(params[:q])
+        # 日付で並び変え
+        @q.sorts = 'history_date desc'
+        @histories = @q.result.page(params[:page])
     end
 
     # 履歴編集

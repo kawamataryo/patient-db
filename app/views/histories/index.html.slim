@@ -13,14 +13,23 @@ div.row
 
         div.card
             div.card-header
-                span  患者情報一覧
+                div.row
+                    div.col-sm-6
+                        h4  来院履歴一覧
+                    div.col-sm-6
+                        / 検索フォーム
+                        = search_form_for @q, html: { class: "form-inline"} do |f|
+                            div.form-group.mg-r-10
+                                = f.label :patient_name_cont, "名前検索", class: "form-control-label mg-r-10"
+                                = f.search_field :patient_name_cont, class: "form-control-sm form-control"
+                                = f.submit "検索する", class: "btn btn-secondary btn-sm"
             div.card-block
                 / list all
                 table.table.table-striped.tb-responsive
                     thead
                         tr
-                            th 日付
-                            th ID
+                            th = sort_link(@q, :history_date, '日付', default_order: :desc)
+                            th = sort_link(@q, :patient_id, 'ID', default_order: :desc)
                             th 名前
                             th 売り上げ
                             th 編集
