@@ -15,8 +15,8 @@ div.card
                 = search_form_for @q, html: { class: "form-inline"} do |f|
                     div.form-group.mg-r-10
                         = f.label :name_cont, "名前検索", class: "form-control-label mg-r-10"
-                        = f.search_field :name_cont, class: "form-control"
-                    = f.submit "検索する", class: "btn btn-secondary"
+                        = f.search_field :name_cont, class: "form-control form-control-sm"
+                    = f.submit "検索する", class: "btn btn-sm btn-secondary"
     div.card-block
         table.table.table-striped.tb-responsive
             thead
