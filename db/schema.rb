@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913050954) do
+ActiveRecord::Schema.define(version: 20170928020234) do
 
   create_table "histories", force: :cascade do |t|
     t.date "history_date"
@@ -39,7 +39,22 @@ ActiveRecord::Schema.define(version: 20170913050954) do
     t.datetime "deleted_at"
     t.integer "patient_id"
     t.string "email"
-    t.string "symptom"
+    t.boolean "shoulder", default: false, null: false
+    t.boolean "lowback", default: false, null: false
+    t.boolean "neak", default: false, null: false
+    t.boolean "knee", default: false, null: false
+    t.boolean "headache", default: false, null: false
+    t.boolean "womans", default: false, null: false
+    t.boolean "pregnant", default: false, null: false
+    t.boolean "spirit", default: false, null: false
+    t.boolean "back", default: false, null: false
+    t.boolean "eye", default: false, null: false
+    t.boolean "ear", default: false, null: false
+    t.boolean "nose", default: false, null: false
+    t.boolean "face", default: false, null: false
+    t.boolean "internal", default: false, null: false
+    t.boolean "nerves", default: false, null: false
+    t.boolean "arm", default: false, null: false
     t.index ["deleted_at"], name: "index_patients_on_deleted_at"
   end
 

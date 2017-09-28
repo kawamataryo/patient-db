@@ -51,18 +51,38 @@ div.patient-form
         div.form-group.row
             = f.label :symptom, '症状', class:"col-sm-2 col-12"
             div.col-sm-10.col-12
-                = f.select :symptom,[ \
-                    ["腰痛","腰痛"], \
-                    ["肩痛","肩痛"], \
-                    ["精神疾患","精神疾患"], \
-                    ["膝痛","膝痛"], \
-                    ["スポーツ疾患","スポーツ疾患"], \
-                    ["神経痛","神経痛"], \
-                    ["小児疾患","小児疾患"], \
-                    ["不妊症","不妊症"], \
-                    ["婦人科疾患","婦人科疾患"], \
-                ], {}, { class:"form-control" }
-
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :shoulder, class: 'form-check-input',:as => :boolean} 肩の痛み
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :lowback, class: 'form-check-input',:as => :boolean} 腰痛
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :neak, class: 'form-check-input',:as => :boolean} 首痛
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :back, class: 'form-check-input',:as => :boolean} 背中の痛み
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :arm, class: 'form-check-input',:as => :boolean} 腕の痛み
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :knee, class: 'form-check-input',:as => :boolean} 足の痛み
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :headache, class: 'form-check-input',:as => :boolean} 頭痛
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :face, class: 'form-check-input',:as => :boolean} 顔面
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :eye, class: 'form-check-input',:as => :boolean} 眼
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :ear, class: 'form-check-input',:as => :boolean} 耳
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :nose, class: 'form-check-input',:as => :boolean} 鼻
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :internal, class: 'form-check-input',:as => :boolean} 内科
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :womans, class: 'form-check-input',:as => :boolean} 婦人科
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :pregnant, class: 'form-check-input',:as => :boolean} 不妊症
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :nerves, class: 'form-check-input',:as => :boolean} 自立神経
+              div.form-check.form-check-inline
+                label.form-check-label #{f.check_box :spirit, class: 'form-check-input',:as => :boolean} 精神疾患
         / reason
         div.form-group.row
             = f.label :reason, '来院理由', class:"col-sm-2 col-12"
