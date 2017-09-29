@@ -1,116 +1,130 @@
 div.patient-form
-        / ID
-        div.form-group.row
-            = f.label :patient_id, '患者ID', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.number_field :patient_id, class:"form-control", required:"", value:@patient_id_defo
-        / 名前
-        div.form-group.row
-            = f.label :name, '名前', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.text_field :name, class:"form-control", required:""
-        / かな
-        div.form-group.row
-            = f.label :kana, 'フリガナ', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.text_field :kana, class:"form-control"
-        / 性別
-        div.form-group.row
-            = f.label :sex, '性別', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :sex, "男性", class:"form-check-input", checked: true} 男性
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :sex, "女性", class:"form-check-input"} 女性
-        / birthdate
-        div.form-group.row
-            = f.label :birthdate, '生年月日', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.date_field :birthdate, class:"form-control"
-        / phone
-        div.form-group.row
-            = f.label :phone, '電話番号', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.text_field :phone, class:"form-control"
-        / email
-        div.form-group.row
-            = f.label :email, 'メール', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.email_field :email, class:"form-control"
-        / postCode
-        div.form-group.row
-            = f.label :post_code, '郵便番号', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.text_field :post_code, class:"form-control", id:"address_zipcode"
-        / address
-        div.form-group.row
-            = f.label :address, '住所', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.text_field :address, class:"form-control", id:"patient_address"
-        / symptom
-        div.form-group.row
-            = f.label :symptom, '症状', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :shoulder, class: 'form-check-input',:as => :boolean} 肩の痛み
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :lowback, class: 'form-check-input',:as => :boolean} 腰痛
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :neak, class: 'form-check-input',:as => :boolean} 首痛
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :back, class: 'form-check-input',:as => :boolean} 背中の痛み
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :arm, class: 'form-check-input',:as => :boolean} 腕の痛み
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :knee, class: 'form-check-input',:as => :boolean} 足の痛み
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :headache, class: 'form-check-input',:as => :boolean} 頭痛
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :face, class: 'form-check-input',:as => :boolean} 顔面
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :eye, class: 'form-check-input',:as => :boolean} 眼
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :ear, class: 'form-check-input',:as => :boolean} 耳
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :nose, class: 'form-check-input',:as => :boolean} 鼻
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :internal, class: 'form-check-input',:as => :boolean} 内科
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :womans, class: 'form-check-input',:as => :boolean} 婦人科
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :pregnant, class: 'form-check-input',:as => :boolean} 不妊症
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :nerves, class: 'form-check-input',:as => :boolean} 自立神経
-              div.form-check.form-check-inline
-                label.form-check-label #{f.check_box :spirit, class: 'form-check-input',:as => :boolean} 精神疾患
-        / reason
-        div.form-group.row
-            = f.label :reason, '来院理由', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :reason, "ホームページ", class:"form-check-input", checked: true} ホームページ
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :reason, "口コミ", class:"form-check-input"} 口コミ
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :reason, "チラシ", class:"form-check-input"} チラシ
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :reason, "知人", class:"form-check-input"} 知人
-        / experience
-        div.form-group.row
-            = f.label :experience, '鍼灸経験', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :experience, "あり", class:"form-check-input", checked: true} あり
-                div.form-check.form-check-inline
-                    label.form-check-label #{f.radio_button :experience, "なし", class:"form-check-input"} なし
-        / firstDay
-        div.form-group.row
-            = f.label :firstday, '初診日', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.date_field :firstday, class:"form-control", required:""
-        / memo
-        div.form-group.row
-            = f.label :memo, 'メモ', class:"col-sm-2 col-12"
-            div.col-sm-10.col-12
-                = f.text_area :memo, class:"form-control", rows: 8
-
+    table.table.table-bordered.form-tb
+      / ID
+      tr
+        th
+          = f.label :patient_id, '患者ID'
+        td
+          = f.number_field :patient_id, class:"form-control", required:"", value:@patient_id_defo
+      / 名前
+      tr
+        th
+          = f.label :name, '名前'
+        td
+          = f.text_field :name, class:"form-control", required:""
+      / かな
+      tr
+        th
+          = f.label :kana, 'フリガナ'
+        td
+          = f.number_field :patient_id, class:"form-control", required:"", value:@patient_id_defo
+      / 性別
+      tr
+        th
+          = f.label :sex, '性別'
+        td
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :sex, "男性", class:"form-check-input", checked: true} 男性
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :sex, "女性", class:"form-check-input"} 女性
+      / 生年月日
+      tr
+        th
+          = f.label :birthdate, '生年月日'
+        td
+          = f.date_field :birthdate, class:"form-control"
+      / 電話番号
+      tr
+        th
+          = f.label :phone, '電話番号'
+        td
+          = f.text_field :phone, class:"form-control"
+      / かな
+      tr
+        th
+          = f.label :email, 'メール'
+        td
+          = f.email_field :email, class:"form-control"
+      / 郵便番号
+      tr
+        th
+          = f.label :post_code, '郵便番号'
+        td
+          = f.text_field :post_code, class:"form-control", id:"address_zipcode"
+      / 住所
+      tr
+        th
+          = f.label :address, '住所'
+        td
+          = f.text_field :address, class:"form-control", id:"patient_address"
+      / 症状
+      tr
+        th
+          = f.label :symptom, '症状'
+        td
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :shoulder, class: 'form-check-input',:as => :boolean} 肩の痛み
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :lowback, class: 'form-check-input',:as => :boolean} 腰痛
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :neak, class: 'form-check-input',:as => :boolean} 首痛
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :back, class: 'form-check-input',:as => :boolean} 背中の痛み
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :arm, class: 'form-check-input',:as => :boolean} 腕の痛み
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :knee, class: 'form-check-input',:as => :boolean} 足の痛み
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :headache, class: 'form-check-input',:as => :boolean} 頭痛
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :face, class: 'form-check-input',:as => :boolean} 顔面
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :eye, class: 'form-check-input',:as => :boolean} 眼
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :ear, class: 'form-check-input',:as => :boolean} 耳
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :nose, class: 'form-check-input',:as => :boolean} 鼻
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :internal, class: 'form-check-input',:as => :boolean} 内科
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :womans, class: 'form-check-input',:as => :boolean} 婦人科
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :pregnant, class: 'form-check-input',:as => :boolean} 不妊症
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :nerves, class: 'form-check-input',:as => :boolean} 自立神経
+          div.form-check.form-check-inline
+            label.form-check-label #{f.check_box :spirit, class: 'form-check-input',:as => :boolean} 精神疾患
+      / 来院理由
+      tr
+        th
+          = f.label :reason, '来院理由'
+        td
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :reason, "ホームページ", class:"form-check-input", checked: true} ホームページ
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :reason, "口コミ", class:"form-check-input"} 口コミ
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :reason, "チラシ", class:"form-check-input"} チラシ
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :reason, "知人", class:"form-check-input"} 知人
+      / 経験
+      tr
+        th
+          = f.label :experience, '鍼灸経験'
+        td
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :experience, "あり", class:"form-check-input", checked: true} あり
+          div.form-check.form-check-inline
+              label.form-check-label #{f.radio_button :experience, "なし", class:"form-check-input"} なし
+      / 初診日
+      tr
+        th
+          = f.label :firstday, '初診日'
+        td
+          = f.date_field :firstday, class:"form-control", required:""
+      / メモ
+      tr
+        th
+          = f.label :memo, 'メモ'
+        td
+          = f.text_area :memo, class:"form-control", rows: 8

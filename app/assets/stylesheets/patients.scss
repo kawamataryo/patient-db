@@ -77,3 +77,16 @@
         text-align: right;
     }
 }
+// -----------------------------------------------------
+//入力form
+// -----------------------------------------------------
+.form-tb {
+    th {
+        background-color: $gray-default;
+        border-bottom: 1px solid #fff;
+        vertical-align: middle;
+        @include min-sm {
+            min-width: 130px;
+        }
+    }
+}
