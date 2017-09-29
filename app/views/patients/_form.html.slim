@@ -65,7 +65,7 @@ div.patient-form
           - %w(肩こり 腰痛 背中).each do |sym|
             div.form-check.form-check-inline
               label.form-check-label
-                = f.check_box :symptom, { multiple: true, include_hidden: false, class: 'form-check-input' }, sym
+                = f.check_box :symptom, { multiple: true, include_hidden: false, checked: @patient.symptom ? @patient.symptom.include?(sym) : false, class: 'form-check-input' }, sym, nil
                 | #{ sym }
       / 来院理由
       tr
