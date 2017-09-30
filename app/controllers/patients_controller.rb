@@ -23,8 +23,6 @@ class PatientsController < ApplicationController
     def create
         #送信データをnew
         @patient = Patient.new(patient_params)
-        #症状の配列を空白区切りの文字列に変換
-        @patient.symptom = patient_params[:symptom].join(', ')
         if @patient.save
             flash[:info] = "#{@patient.name}さんの登録が完了しました。"
             redirect_to @patient
@@ -68,12 +66,12 @@ class PatientsController < ApplicationController
     # フォーム受け取り要素の選別
     private
         def patient_params
-            para = params.require(:patient).permit(:patient_id, :name, :kana, :sex, :birthdate, :phone,
+            param = params.require(:patient).permit(:patient_id, :name, :kana, :sex, :birthdate, :phone,
                                             :post_code, :address, :reason, :experience, :email,
                                             :firstday, :memo, symptom: [])
             #配列要素を文字列に変換
-            para[:symptom] = para[:symptom].join(', ')
+            param[:symptom] = param[:symptom].join(', ')
 
-            return para
+            return param
         end
 end

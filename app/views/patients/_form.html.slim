@@ -63,7 +63,7 @@ div.patient-form
           = f.label :symptom, '症状'
         td
           - %w(肩こり 腰痛 首の痛み 背中の痛み 腕の痛み 足の痛み 頭痛 顔 眼 耳 鼻 自律神経 内科 婦人科 不妊治療 精神疾患 その他).each do |sym|
-            div.form-check.form-check-inline
+            div.form-check.form-check-inline.symptom-check
               label.form-check-label
                 = f.check_box :symptom, { multiple: true, include_hidden: false, checked: @patient.symptom ? @patient.symptom.include?(sym) : false, class: 'form-check-input' }, sym, nil
                 span #{sym}
