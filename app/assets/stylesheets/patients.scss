@@ -86,8 +86,9 @@
         background-color: $gray-default;
         border-bottom: 1px solid #fff;
         vertical-align: middle;
-        @include min-sm {
-            min-width: 130px;
+        min-width: 130px;
+        @include max-sm {
+            min-width: 100px;
         }
     }
     // checkbox

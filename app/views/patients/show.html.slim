@@ -25,10 +25,13 @@ div.row
                         td = @patient.patient_id
                     tr
                         th 名前
-                        td == @patient.kana.present? ? @patient.name + "<small>(" + @patient.kana + ")</small>" : @patient.name
+                        td == @patient.kana.present? ? @patient.name + " <small>(" + @patient.kana + ")</small>" : @patient.name
                     tr
                         th 年齢
                         td = age(@patient.birthdate)
+                    tr
+                        th 性別
+                        td = @patient.sex
                     tr
                         th 生年月日
                         td = @patient.birthdate.strftime('%Y年%m月%d日') if @patient.birthdate
