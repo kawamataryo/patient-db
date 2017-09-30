@@ -37,22 +37,23 @@ class ChartsController < ApplicationController
         #------------------------------------------------------------------
         # 地域別患者割合
         #------------------------------------------------------------------
-        a_hitachinaka = Patient.where('address like(?)', "%ひたちなか%").count
-        a_mito = Patient.where('address like(?)', "%水戸%").count
-        a_naka = Patient.where('address like(?)', "%那珂%").count
-        a_tokai = Patient.where('address like(?)', "%東海%").count
-        a_hitatchi = Patient.where('address like(?)', "%日立%").count
-        a_oarai = Patient.where('address like(?)', "%大洗%").count
-        a_other = Patient.count - a_hitachinaka - a_hitatchi - a_naka - a_tokai - a_oarai
-        @address_pie_chart = {
-            "ひたちなか" => a_hitachinaka,
-            "水戸" => a_mito,
-            "那珂" => a_naka,
-            "東海" => a_tokai,
-            "日立" => a_hitatchi,
-            "大洗" => a_oarai,
-            "その他" => a_other,
-        }
+
+        @address_pie_chart = {}
+        # 近隣地域の集計
+        Settings.nearby_town.split(' ').each do |town|
+            @address_pie_chart[town] = Patient.where('address like(?)', "%#{town}%").count
+        end
+        # その他地域の合計を計算
+        @address_pie_chart['その他'] = Patient.count - @address_pie_chart.values.inject(:+)
+
+        #------------------------------------------------------------------
+        # 症状の分布
+        #------------------------------------------------------------------
+        # 症例の検索
+        @symptom_pie_chart = {}
+        Settings.symptom.split(' ').each do |sym|
+            @symptom_pie_chart[sym] = Patient.where('symptom like(?)', "%#{sym}%").count
+        end
 
         #------------------------------------------------------------------
         # 来院理由
@@ -135,14 +136,6 @@ class ChartsController < ApplicationController
                                 {"name" => "チラシ", "data" => age_reason_sum[2]},
                                 {"name" => "知人", "data" =>age_reason_sum[3]} ]
 
-        #------------------------------------------------------------------
-        # 症状の分布
-        #------------------------------------------------------------------
-        # 症例の検索
-        @symptom_pie_chart = {}
-        Settings.symptom.split(' ').each do |sym|
-            @symptom_pie_chart[sym] = Patient.where('symptom like(?)', "%#{sym}%").count
-        end
 
     end
 
