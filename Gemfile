@@ -104,3 +104,5 @@ gem 'paranoia'
 gem 'autoprefixer-rails'
 #検索機能追加
 gem 'ransack'
+#定数管理
+gem 'config'
