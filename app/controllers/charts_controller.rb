@@ -92,6 +92,7 @@ class ChartsController < ApplicationController
                 @ages_chart["80代以上"] += 1
             end
         end
+
         #------------------------------------------------------------------
         # 年齢区分別広告効果
         #------------------------------------------------------------------
@@ -134,7 +135,14 @@ class ChartsController < ApplicationController
                                 {"name" => "チラシ", "data" => age_reason_sum[2]},
                                 {"name" => "知人", "data" =>age_reason_sum[3]} ]
 
-
+        #------------------------------------------------------------------
+        # 症状の分布
+        #------------------------------------------------------------------
+        # 症例の検索
+        @symptom_pie_chart = {}
+        Settings.symptom.split(' ').each do |sym|
+            @symptom_pie_chart[sym] = Patient.where('symptom like(?)', "%#{sym}%").count
+        end
 
     end
 
@@ -143,8 +151,8 @@ class ChartsController < ApplicationController
     #------------------------------------------------------------------
     private
         # 誕生日から年齢計算
-    def age_cal(birthdate)
-        date_format = "%Y%m%d"
-        (Date.today.strftime(date_format).to_i - birthdate.to_s.gsub!(/-/,'').to_i) / 10000
-    end
+        def age_cal(birthdate)
+            date_format = "%Y%m%d"
+            (Date.today.strftime(date_format).to_i - birthdate.to_s.gsub!(/-/,'').to_i) / 10000
+        end
 end
