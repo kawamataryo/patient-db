@@ -81,6 +81,7 @@
 //入力form
 // -----------------------------------------------------
 .form-tb {
+    // 見出し
     th {
         background-color: $gray-default;
         border-bottom: 1px solid #fff;
@@ -88,5 +89,10 @@
         @include min-sm {
             min-width: 130px;
         }
+    }
+    // checkbox
+    .form-check-inline {
+        margin-left: 0;
+        margin-right: 10px;
     }
 }
