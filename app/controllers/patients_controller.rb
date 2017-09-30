@@ -69,8 +69,8 @@ class PatientsController < ApplicationController
             param = params.require(:patient).permit(:patient_id, :name, :kana, :sex, :birthdate, :phone,
                                             :post_code, :address, :reason, :experience, :email,
                                             :firstday, :memo, symptom: [])
-            #配列要素を文字列に変換
-            param[:symptom] = param[:symptom].join(', ')
+            #配列要素を文字列に変換(入力されているときのみ)
+            param[:symptom] = param[:symptom].join(', ') if param[:symptom]
 
             return param
         end
