@@ -11,13 +11,13 @@ div.patient-form
         th
           = f.label :name, '名前'
         td
-          = f.text_field :name, class:"form-control", required:""
+          = f.text_field :name, class:"form-control", required:"", placeholder:"山田　太郎"
       / かな
       tr
         th
           = f.label :kana, 'フリガナ'
         td
-          = f.text_field :kana, class:"form-control"
+          = f.text_field :kana, class:"form-control", placeholder:"ヤマダ　タロウ"
       / 性別
       tr
         th
@@ -38,25 +38,25 @@ div.patient-form
         th
           = f.label :phone, '電話番号'
         td
-          = f.text_field :phone, class:"form-control"
+          = f.text_field :phone, class:"form-control", placeholder:"012-3456-7890"
       / かな
       tr
         th
           = f.label :email, 'メール'
         td
-          = f.email_field :email, class:"form-control"
+          = f.email_field :email, class:"form-control", placeholder:"test@test.com"
       / 郵便番号
       tr
         th
           = f.label :post_code, '郵便番号'
         td
-          = f.text_field :post_code, class:"form-control", id:"address_zipcode"
+          = f.text_field :post_code, class:"form-control", id:"address_zipcode", placeholder:"012-3456"
       / 住所
       tr
         th
           = f.label :address, '住所'
         td
-          = f.text_field :address, class:"form-control", id:"patient_address"
+          = f.text_field :address, class:"form-control", id:"patient_address", placeholder:"○○県○○市○○町123-456"
       / 症状
       tr
         th
@@ -100,4 +100,4 @@ div.patient-form
         th
           = f.label :memo, 'メモ'
         td
-          = f.text_area :memo, class:"form-control", rows: 8
+          = f.text_area :memo, class:"form-control", rows: 8, placeholder:"その他：症状や特徴など"
