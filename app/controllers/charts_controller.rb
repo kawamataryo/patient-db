@@ -56,6 +56,28 @@ class ChartsController < ApplicationController
         end
 
         #------------------------------------------------------------------
+        # リピート率
+        #------------------------------------------------------------------
+        @repeat_bar_chart = {"1回のみ" => 0, "2回" => 0, "3回" => 0, "4回" => 0, "5回以上" => 0}
+        History.group(:patient_id).count.each do |key, value|
+            if value == 1 then
+                @repeat_bar_chart["1回のみ"] += 1
+            end
+            if value == 2 then
+                @repeat_bar_chart["2回"] += 1
+            end
+            if value == 3 then
+                @repeat_bar_chart["3回"] += 1
+            end
+            if value == 4 then
+                @repeat_bar_chart["4回"] += 1
+            end
+            if value >= 5 then
+                @repeat_bar_chart["5回以上"] += 1
+            end
+        end
+
+        #------------------------------------------------------------------
         # 来院理由
         #------------------------------------------------------------------
         reason_internet = Patient.where(:reason => "ホームページ").group_by_month(:firstday).count
