@@ -37,22 +37,45 @@ class ChartsController < ApplicationController
         #------------------------------------------------------------------
         # 地域別患者割合
         #------------------------------------------------------------------
-        a_hitachinaka = Patient.where('address like(?)', "%ひたちなか%").count
-        a_mito = Patient.where('address like(?)', "%水戸%").count
-        a_naka = Patient.where('address like(?)', "%那珂%").count
-        a_tokai = Patient.where('address like(?)', "%東海%").count
-        a_hitatchi = Patient.where('address like(?)', "%日立%").count
-        a_oarai = Patient.where('address like(?)', "%大洗%").count
-        a_other = Patient.count - a_hitachinaka - a_hitatchi - a_naka - a_tokai - a_oarai
-        @address_pie_chart = {
-            "ひたちなか" => a_hitachinaka,
-            "水戸" => a_mito,
-            "那珂" => a_naka,
-            "東海" => a_tokai,
-            "日立" => a_hitatchi,
-            "大洗" => a_oarai,
-            "その他" => a_other,
-        }
+
+        @address_pie_chart = {}
+        # 近隣地域の集計
+        Settings.nearby_town.split(' ').each do |town|
+            @address_pie_chart[town] = Patient.where('address like(?)', "%#{town}%").count
+        end
+        # その他地域の合計を計算
+        @address_pie_chart['その他'] = Patient.count - @address_pie_chart.values.inject(:+)
+
+        #------------------------------------------------------------------
+        # 症状の分布
+        #------------------------------------------------------------------
+        # 症例の検索
+        @symptom_pie_chart = {}
+        Settings.symptom.split(' ').each do |sym|
+            @symptom_pie_chart[sym] = Patient.where('symptom like(?)', "%#{sym}%").count
+        end
+
+        #------------------------------------------------------------------
+        # リピート率
+        #------------------------------------------------------------------
+        @repeat_bar_chart = {"1回のみ" => 0, "2回" => 0, "3回" => 0, "4回" => 0, "5回以上" => 0}
+        History.group(:patient_id).count.each do |key, value|
+            if value == 1 then
+                @repeat_bar_chart["1回のみ"] += 1
+            end
+            if value == 2 then
+                @repeat_bar_chart["2回"] += 1
+            end
+            if value == 3 then
+                @repeat_bar_chart["3回"] += 1
+            end
+            if value == 4 then
+                @repeat_bar_chart["4回"] += 1
+            end
+            if value >= 5 then
+                @repeat_bar_chart["5回以上"] += 1
+            end
+        end
 
         #------------------------------------------------------------------
         # 来院理由
@@ -92,6 +115,7 @@ class ChartsController < ApplicationController
                 @ages_chart["80代以上"] += 1
             end
         end
+
         #------------------------------------------------------------------
         # 年齢区分別広告効果
         #------------------------------------------------------------------
@@ -135,7 +159,6 @@ class ChartsController < ApplicationController
                                 {"name" => "知人", "data" =>age_reason_sum[3]} ]
 
 
-
     end
 
     #------------------------------------------------------------------
@@ -143,8 +166,8 @@ class ChartsController < ApplicationController
     #------------------------------------------------------------------
     private
         # 誕生日から年齢計算
-    def age_cal(birthdate)
-        date_format = "%Y%m%d"
-        (Date.today.strftime(date_format).to_i - birthdate.to_s.gsub!(/-/,'').to_i) / 10000
-    end
+        def age_cal(birthdate)
+            date_format = "%Y%m%d"
+            (Date.today.strftime(date_format).to_i - birthdate.to_s.gsub!(/-/,'').to_i) / 10000
+        end
 end
