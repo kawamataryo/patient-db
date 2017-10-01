@@ -103,4 +103,8 @@
             width: 25%;
         }
     }
+    // placeholder
+    input, textarea {
+        @include placeholderColor(#cdcdcd);
+    }
 }

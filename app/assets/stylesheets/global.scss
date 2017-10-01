@@ -47,10 +47,30 @@ $gray-default: #eceeef;
     }
 }
 
-
 /*--------------------------------------------------------------------
 汎用スタイル
 ---------------------------------------------------------------------*/
+// placeholder
+@mixin placeholderColor($color) {
+    &:placeholder-shown {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color:$color;
+    }
+    &:-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color:$color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color:$color;
+    }
+}
+
 
 //5カラム定義
 .col-xs-15, .col-sm-15, .col-md-15, .col-lg-15 {
