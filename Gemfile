@@ -45,11 +45,6 @@ group :development, :test do
     gem 'factory_girl_rails'
     gem 'database_cleaner'
     gem 'launchy'
-    # ダミーseeds
-    gem 'faker'
-    gem 'gimei'
-    gem "yoshida"
-    gem 'as-duration'
 end
 
 group :development do
@@ -110,3 +105,8 @@ gem 'autoprefixer-rails'
 gem 'ransack'
 #定数管理
 gem 'config'
+# ダミーseeds
+gem 'faker'
+gem 'gimei'
+gem "yoshida"
+gem 'as-duration'
