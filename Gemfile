@@ -43,9 +43,13 @@ group :development, :test do
     # add test
     gem 'rspec-rails'
     gem 'factory_girl_rails'
-    gem 'faker'
     gem 'database_cleaner'
     gem 'launchy'
+    # ダミーseeds
+    gem 'faker'
+    gem 'gimei'
+    gem "yoshida"
+    gem 'as-duration'
 end
 
 group :development do

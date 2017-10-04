@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929125808) do
+ActiveRecord::Schema.define(version: 20171004160934) do
 
   create_table "histories", force: :cascade do |t|
     t.date "history_date"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170929125808) do
     t.string "sex"
     t.date "birthdate"
     t.string "phone"
-    t.integer "post_code"
+    t.string "post_code"
     t.string "address"
     t.string "reason"
     t.string "experience"
