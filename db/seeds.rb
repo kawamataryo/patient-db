@@ -10,33 +10,33 @@ experience = %w(あり なし)
 
 # 患者情報
 (1..900).each do |i|
-    gimei = Gimei.name
-    Patient.create(
-        patient_id: i,
-        name: gimei.kanji,
-        kana: gimei.hiragana,
-        sex: sex.sample,
-        birthdate: Faker::Time.between(90.years.ago, 1.years.ago, :all).to_s[0, 10],
-        phone: Faker::PhoneNumber.phone_number,
-        post_code: Faker::Number.number(3) + '-' + Faker::Number.number(4),
-        address: Faker::Address.city + Faker::Address.building_number,
-        reason: reason.sample,
-        experience: experience.sample,
-        firstday: Faker::Time.between(5.years.ago, 1.day.ago, :all).to_s[0, 10],
-        email: Faker::Internet.email,
-        symptom: symptom.sample,
-        memo: Yoshida::Text.sentence
-    )
+  gimei = Gimei.name
+  Patient.create(
+    patient_id: i,
+    name: gimei.kanji,
+    kana: gimei.hiragana,
+    sex: sex.sample,
+    birthdate: Faker::Time.between(90.years.ago, 1.years.ago, :all).to_s[0, 10],
+    phone: Faker::PhoneNumber.phone_number,
+    post_code: Faker::Number.number(3) + '-' + Faker::Number.number(4),
+    address: Faker::Address.city + Faker::Address.building_number,
+    reason: reason.sample,
+    experience: experience.sample,
+    firstday: Faker::Time.between(5.years.ago, 1.day.ago, :all).to_s[0, 10],
+    email: Faker::Internet.email,
+    symptom: symptom.sample,
+    memo: Yoshida::Text.sentence
+  )
 end
 
 # 来院履歴
 (1..9000).each do |i|
-    History.create(
-        history_date: Faker::Time.between(5.years.ago, 1.day.ago, :all).to_s[0, 10],
-        patient_id: Faker::Number.between(1, 900),
-        patient_name: Faker::Name.name,
-        sales: 4000
-    )
+  History.create(
+    history_date: Faker::Time.between(5.years.ago, 1.day.ago, :all).to_s[0, 10],
+    patient_id: Faker::Number.between(1, 900),
+    patient_name: Faker::Name.name,
+    sales: 4000
+  )
 end
 
 # 認証情報
