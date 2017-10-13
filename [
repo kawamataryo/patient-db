@@ -35,7 +35,7 @@ div id="app"
                             th 名前
                             th 住所
                             th 電話番号
-                            th 編集
+                            th
                     tbody
                         tr v-for="item in filterPhone"
                             td data-label="ID" ="{{item.patient_id}}"
@@ -85,27 +85,21 @@ javascript:
             // 電話番号を基準に検索
             filterPhone: function() {
                 return this.items.filter(function(value) {
-                  // 電話番号が未入力の場合のerrorを防ぐためnullチェック
-                  if (value.phone) {
                     if (value.phone.includes(this.filterKey)) {
                         return true
                     }else {
                         return false
                     }
-                  }
                 }.bind(this))
             },
             // 名前を基準に検索
             filterName: function() {
                 return this.items.filter(function(value) {
-                  // 名前が未入力の場合のerrorを防ぐためnullチェック
-                  if (value.name) {
                     if (value.name.includes(this.filterKey)) {
                         return true
                     }else {
                         return false
                     }
-                  }
                 }.bind(this))
             },
             // 検索タイトル選択
