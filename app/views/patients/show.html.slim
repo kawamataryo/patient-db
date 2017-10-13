@@ -1,78 +1,103 @@
 div.row
-    div.col-sm-8.offset-sm-2
-        / 登録完了info
-        - if flash[:info]
-            div.alert.alert-success.d-flex.justify-content-between role="alert"
-                span #{flash[:info]}
-                a.btn.btn-outline-success.btn-sm href="#{new_patient_path}" 続けて登録する
-        / 詳細情報
+  div.col-sm-8.offset-sm-2
+    / 登録完了info
+    - if flash[:info]
+      div.alert.alert-success.d-flex.justify-content-between role="alert"
+        span #{flash[:info]}
+        a.btn.btn-outline-success.btn-sm href="#{new_patient_path}" 続けて登録する
+    / 詳細情報
+    div.card
+      div.card-header
+        div.row
+          div.col-6
+            span 詳細情報
+          div.col-6
+            div.text-right
+              = link_to edit_patient_url(@patient), class:"btn btn-success mg-r-10 btn-sm" do
+                i.fa.fa-pencil
+              = link_to @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-sm" do
+                i.fa.fa-trash
+      div.card-block
+        / 患者個別情報
+        table.table.patient-show-table
+          tr
+            th 患者ID
+            td = @patient.patient_id
+          tr
+            th 名前
+            td == @patient.kana.present? ? @patient.name + " <small>(" + @patient.kana + ")</small>" : @patient.name
+          tr
+            th 年齢
+            td = age(@patient.birthdate)
+          tr
+            th 性別
+            td = @patient.sex
+          tr
+            th 生年月日
+            td = @patient.birthdate.strftime('%Y年%m月%d日') if @patient.birthdate
+          tr
+            th 電話番号
+            td = phone_number_format(@patient.phone)
+          tr
+            th メールアドレス
+            td = @patient.email
+          tr
+            th 郵便番号
+            td = @patient.post_code != 0 ? @patient.post_code : '未入力'
+          tr
+            th 住所
+            td = @patient.address
+          tr
+            th 症状
+            td = @patient.symptom
+          tr
+            th 来院理由
+            td = @patient.reason
+          tr
+            th 鍼灸経験
+            td = @patient.experience
+          tr
+            th 初診日
+            td = @patient.firstday
+          tr
+            th 最終来院日
+            - unless @patient.history.count == 0
+              td = @patient.history.last.history_date
+            - else
+              td 履歴未入力
+          tr
+            th 来院回数
+            td = @patient.history.count.to_s + '回'
+          tr
+            th 売上高
+            td = @patient.history.sum(:sales).to_s(:delimited) + '円'
+          tr
+            th メモ
+            td = @patient.memo
+
         div.card
-            div.card-header
-                div.row
-                    div.col-6
-                        span  詳細情報
-                    div.col-6
-                        div.text-right
-                            = link_to edit_patient_url(@patient), class:"btn btn-success mg-r-10 btn-sm" do
-                                i.fa.fa-pencil
-                            = link_to @patient, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-danger btn-sm" do
-                                i.fa.fa-trash
-            div.card-block
-                / 患者個別情報
-                table.table.patient-show-table
-                    tr
-                        th 患者ID
-                        td = @patient.patient_id
-                    tr
-                        th 名前
-                        td == @patient.kana.present? ? @patient.name + " <small>(" + @patient.kana + ")</small>" : @patient.name
-                    tr
-                        th 年齢
-                        td = age(@patient.birthdate)
-                    tr
-                        th 性別
-                        td = @patient.sex
-                    tr
-                        th 生年月日
-                        td = @patient.birthdate.strftime('%Y年%m月%d日') if @patient.birthdate
-                    tr
-                        th 電話番号
-                        td = phone_number_format(@patient.phone)
-                    tr
-                        th メールアドレス
-                        td = @patient.email
-                    tr
-                        th 郵便番号
-                        td = @patient.post_code != 0 ? @patient.post_code : '未入力'
-                    tr
-                        th 住所
-                        td = @patient.address
-                    tr
-                        th 症状
-                        td = @patient.symptom
-                    tr
-                        th 来院理由
-                        td = @patient.reason
-                    tr
-                        th 鍼灸経験
-                        td = @patient.experience
-                    tr
-                        th 初診日
-                        td = @patient.firstday
-                    tr
-                        th 最終来院日
-                        - unless @patient.history.count == 0
-                            td = @patient.history.last.history_date
-                        - else
-                            td 履歴未入力
-                    tr
-                        th 来院回数
-                        td = @patient.history.count.to_s + '回'
-                    tr
-                        th メモ
-                        td = @patient.memo
-                / メニューリンク
-                = render partial: 'shared/menu-link'
+          div.card-header
+            span 来院履歴（来院回数#{@patient.history.count.to_s + '回'})
+          div.card-block
+            / list all
+            table.table.table-striped.table-sm
+              thead
+                tr
+                  th 日付
+                  th 売り上げ
+                  th 編集
+              tbody
+                - @patient.history.order(history_date: :desc).each do |history|
+                  tr
+                    td data-label="日付" = history.history_date
+                    td data-label="売上" = history.sales
+                    td.edit-btn
+                      = link_to edit_history_path(history.id), class:"btn btn-sm btn-success mg-r-10" do
+                        i.fa.fa-pencil
+                      = link_to history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-sm btn-danger" do
+                        i.fa.fa-trash
+        / メニューリンク
+        = render partial: 'shared/menu-link'
 
 
 
