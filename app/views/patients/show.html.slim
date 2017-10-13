@@ -92,10 +92,10 @@ div.row
                     td data-label="日付" = history.history_date
                     td data-label="売上" = history.sales
                     td.edit-btn
-                      = link_to edit_history_path(history.id), class:"btn btn-sm btn-success mg-r-10" do
-                        i.fa.fa-pencil
-                      = link_to history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"btn btn-sm btn-danger" do
-                        i.fa.fa-trash
+                      = link_to edit_history_path(history.id), class:"text-success mg-r-10" do
+                        | 編集
+                      = link_to history, method: :delete, data: { confirm: "本当に削除してもよろしいでしょうか?" }, class:"text-danger" do
+                        | 削除
         / メニューリンク
         = render partial: 'shared/menu-link'
 
