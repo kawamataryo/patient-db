@@ -1,10 +1,52 @@
-# README
+# Patient DB
+Management of patient information for acupuncture clinics and clinics.
 
-# 内容
-鍼灸院や治療院向けの患者情報の管理アプリ。
+![スクリーンショット 2020-01-22 6 13 29](https://user-images.githubusercontent.com/11070996/72843924-dc05df00-3cde-11ea-80e1-ecce5ef8552a.png)
 
-# 機能
-- 患者情報の登録編集削除検索
-- 来院履歴の登録編集削除
-- 売上データ、患者属性のグラフ化
-- 経理ソフト用に売上情報のcsvエクスポート
+
+## Demo Usage
+
+Setup ruby version to 2.4.1.
+
+```
+rbenv install 2.4.1
+rbenv local 2.4.1
+```
+
+Install gems.
+
+```
+bundle i
+```
+
+Import demo data to db.
+
+```
+bundle exec rake db:seed
+```
+
+Access http://localhost:3000 and log in with the following information.
+
+```
+email: hoge@hoge.com
+password: hogehoge
+```
+
+## Feature
+- Authentication and Authorization user
+- Patient data CRUD
+- Patient history data CRUD
+- Sales charts
+- CSV export
+
+## Screenshots
+Menu page.
+![スクリーンショット 2020-01-22 6 15 10](https://user-images.githubusercontent.com/11070996/72843950-e58f4700-3cde-11ea-99f1-ac83cc2d7640.png)
+Patients index page.
+![スクリーンショット 2020-01-22 6 22 01](https://user-images.githubusercontent.com/11070996/72844332-9f86b300-3cdf-11ea-92d4-7d964860c4b0.png)
+History new page.
+![スクリーンショット 2020-01-22 6 22 24](https://user-images.githubusercontent.com/11070996/72844344-a57c9400-3cdf-11ea-8228-5cc5493bb330.png)
+
+Graph page.
+![スクリーンショット 2020-01-22 6 15 10](https://user-images.githubusercontent.com/11070996/72843950-e58f4700-3cde-11ea-99f1-ac83cc2d7640.png)
+
