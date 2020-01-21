@@ -12,7 +12,7 @@ email: hoge@hoge.com
 password:  hogehoge
 ```
 
-※ Because Deployed to heroku's free plan, First access is slow.
+※ Because deployed to heroku's free plan, First access is slow.
 
 ## Usage
 
