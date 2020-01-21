@@ -35,7 +35,7 @@ Import demo data to db.
 bundle exec rake db:seed
 ```
 
-Server start and Access http://localhost:3000.
+Server start and access http://localhost:3000.
 
 ```
 bundle exec rails s
